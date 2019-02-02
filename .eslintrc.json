@@ -9,6 +9,7 @@
         "prettier"
       ],
     "rules": {
+        "es6": true,
         "no-duplicate-case":"error",
         "no-empty":"error",
         "no-extra-semi":"error",
