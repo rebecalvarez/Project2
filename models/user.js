@@ -1,15 +1,15 @@
-module.exports = (sequelize, DataTypes)=> {
+module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
-    first_name: DataTypes.STRING,
-    last_name: DataTypes.STRING,
+    firstName: DataTypes.STRING,
+    lastName: DataTypes.STRING,
     email: DataTypes.TEXT
   });
 
-  User.associate = (models)=>{
-    User.hasMany(models.StockFaves,{
+  User.associate = function(models) {
+    User.hasMany(models.StockFaves, {
       onDelete: "cascade"
     });
   };
 
-  return Example;
+  return User;
 };
