@@ -1,9 +1,9 @@
 var db = require("../models");
-
+//var User=require("../models/user");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+    db..findAll({}).then(function(dbExamples) {
       res.render("index", {
         msg: "Welcome!",
         examples: dbExamples
