@@ -3,12 +3,13 @@ var User=require("../models/user");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.findAll({}).then(function(dbExamples) {
-      res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
-      });
-    });
+    res.render("index");
+    // db.findAll({}).then(function(dbExamples) {
+    //   res.render("index", {
+    //     msg: "Welcome!",
+    //     examples: dbExamples
+    //   });
+    // });
   });
 
   // Load example page and pass in an example by id
