@@ -1,4 +1,4 @@
-var User=require("./user.js");
+var User = require("./user.js");
 module.exports = function(sequelize, DataTypes) {
   var StockFaves = sequelize.define("StockFaves", {
     name: DataTypes.STRING,
