@@ -1,0 +1,81 @@
+@charset "utf-8";
+/* CSS Document */
+
+#logo a span, .logo a span, .type-1 #header nav#main-menu ul li a:hover, .type-1 #header nav#main-menu ul li a:focus, .dt-sc-contact-info a:hover, .dt-sc-portfolio figcaption a:hover span:before, .sub-title:first-letter, ul.dt-sc-fancy-list li:before, .dt-sc-ico-content.type3 .icon-background span.fa, .dt-sc-ico-content.type4 .icon span.fa, #testimonial-pager a:before, article.blog-entry .entry-details .entry-meta .date, article.blog-entry .entry-details .tags a i, a.dt-sc-toggle:before, a.dt-sc-toggle-accordion:before, .dt-sc-pr-tb-col.type2 .dt-sc-pricing-icon i, .donut-chart p, .dt-sc-contact-info i, ol li, .breadcrumb h1 span, .dt-sc-project-details ul li span, .widget.widget_categories ul li:hover:before, .dt-sc-portfolio figcaption h6 a:hover, .dt-sc-entry-details .dt-sc-entry-metadata i, .header.type2 li a:hover, #header.type3 nav#main-menu ul.menu li i, #header.type3 nav#main-menu ul.menu li a:hover, #header.type3 nav#main-menu ul.menu li.current_page_item a, header.type4 #main-menu ul li a:hover, header.type4 #main-menu ul li.current_page_item a, header.type4 #main-menu ul li a i, #panel ul li a:hover, #panel ul li.current_page_item a, .header.type2 li.current_page_item a, .type-1 #header nav#main-menu ul li.current_page_item a, .twitter-parallax .latest-tweets .tweet_text a, .twitter-parallax .latest-tweets span.tweet_time a, .menu.type6 a, #header.type3 #menu-container li a i.fa, #menu-container ul li a:hover, #menu-container ul li.current_page_item a, #header.type5 nav.main-menu ul li.current_page_item a, #header.type5 nav.main-menu ul li a:hover, article.blog-entry .entry-details .tags a:hover i, #scrolldown a, .dt-sc-ico-content.type5 h5:before, .dt-sc-ico-content.type5 h5 a { color: #5EAD97; }
+
+::-webkit-input-placeholder { color: #424645; }
+::-moz-placeholder { color: #424645; }
+::-ms-input-placeholder { color:  #424645; }	
+
+.type-1 #header nav#main-menu ul li a:hover:before, .type-1 #header nav#main-menu ul li.current_page_item a:before, .type-1 #header nav#main-menu ul li a:focus:before, .header.type2 ul li a:focus:before, .header.type2 ul li.current_page_item a:before, .header.type2 ul li > a:hover:before, #panel ul li a:hover:before, #panel ul li.current_page_item a:before { color: #5EAD97; text-shadow: 7px 0 #5EAD97, -7px 0 #5EAD97, 0px 0 #5EAD97; }
+
+.main-title:before { text-shadow: 14px 0 #5EAD97, -14px 0 #5EAD97, 0px 0 #5EAD97; }
+
+.dt-sc-button.type1, .dt-sc-button.type2, .dt-sc-button.type3, .widget.widget_tag_cloud .tagcloud a, .widget.widget_product_tag_cloud .tagcloud a, .dt-sc-service-carousel, .dt-sc-hr, .tooltip, .dt-sc-services h5:after, .dt-sc-services-boxes .what-we-do, .dt-sc-ico-content.type2:hover, .dt-sc-ico-content.type1 h5 a:after , .dt-sc-ico-content.type3 h5 a:after, .dt-sc-ico-content.type3 h5 a:before , ul#team-section div.team-details.empty-text, article.blog-entry .entry-thumb .entry-title, .dt-sc-contact-info h5:before, .dt-sc-copyrights, .dt-sc-contact-form input[type="submit"], .service-sliders, th, .dt-sc-button.with-icon:hover i.fa, .dt-sc-button.with-icon:hover i.fa:after, ol.type1 li:before, ol.type2 li:before, ol.type3 li:before, ol.type4 li:before, ul#team-section li p a, .dt-sc-project-details ul.dt-sc-social-icons li a, .dt-sc-ico-content.type3:hover .icon span.fa, .dt-sc-testimonial-carousel li cite:before, .dt-sc-pr-tb-col.selected .dt-sc-button.with-icon i.fa, .dt-sc-pr-tb-col:hover .dt-sc-button.with-icon i.fa, .dt-sc-pr-tb-col.selected .dt-sc-button.with-icon i.fa:after, .dt-sc-pr-tb-col:hover .dt-sc-button.with-icon i.fa:after, .dt-sc-pr-tb-col.selected:before, .dt-sc-tabs-frame.dt-sc-pricing-tab li:hover > a, .dt-sc-pr-tb-col.type2.selected .dt-sc-pricing-icon, .dt-sc-pr-tb-col.type2:hover .dt-sc-pricing-icon, .donut-chart .pie, .dt-sc-team.type2  .dt-sc-entry-thumb:before, .dt-sc-team.type2 .dt-sc-entry-thumb .figcaption, .dt-sc-team.type2 .dt-sc-entry-thumb .team-title, .dt-sc-portfolio figcaption h6 a:hover:before, .dt-sc-portfolio figcaption h6 a:hover:after, .widget #searchform input[type="submit"], .widget.widget_categories ul li:hover span, .widget.widget_archive ul li:hover span, #commentform .dt-sc-button:hover, .type2-menu-icon,  #header.type3 nav#main-menu ul.menu li a:after, header.type4 #main-menu ul li a:after, .twitter-parallax .twitter-icon, .dt-sc-contact-info:after, .twitter-parallax .latest-tweets span.tweet_time a:before, .twitter-parallax .latest-tweets span.tweet_time a:after, .type6-menu-icon:before, .type6-menu-icon:after, .dt-sc-ico-content.type1 span.fa, .dt-sc-tabs-vertical-container .dt-sc-tabs-vertical-frame li a i , .pace .pace-progress:after, #loader-wrapper .large-header h1, ul.dt-sc-pagination li a:hover, ul.dt-sc-pagination li.selected a, .dt-sc-ico-content.type5 .dt-sc-content:before, .dt-sc-ico-content.type5 h5:after, .dt-sc-ico-content.type5 h5:before { background: #5EAD97; }
+
+.dt-sc-button.type1, .dt-sc-button.type2, .dt-sc-button.type3, .dt-sc-button.type3:before, .widget.widget_tag_cloud .tagcloud a, .widget.widget_product_tag_cloud .tagcloud a, .tooltip, .dt-sc-ico-content.type1, .dt-sc-testimonial-mask:before, article.blog-entry, article.blog-entry a.read-more, article.blog-entry .entry-thumb, article.blog-entry .entry-details .entry-meta, input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="tel"]:focus, input[type="number"]:focus, input[type="range"]:focus, input[type="date"]:focus, textarea:focus, input.text:focus, input[type="search"]:focus, ol.type1 li, ol.type2 li, ol.type3 li, ol.type4 li, .dt-sc-ico-content.type3 .icon span.fa, .dt-sc-ico-content.type3, .dt-sc-pricing-table ul.type1, .dt-sc-pricing-table ul.type1 .dt-sc-tb-title, .dt-sc-pr-tb-col.type2, .dt-sc-pr-tb-col.type2 .dt-sc-pr-tb-col-wrapper, .dt-sc-pr-tb-col.type2 ul li, .donut-chart p, .dt-sc-team.type2 .dt-sc-entry-thumb, .dt-sc-dropcap, .recent-gallery-container, .dt-sc-post-pagination, .widget.widget_search #searchform input[type="text"], .widget.widget_categories ul li, .widget.widget_archive ul li, .widget.widget_categories ul li span, .widget.widget_archive ul li span, ul.commentlist li .comment-details:before, #commentform input, #commentform textarea, .dt-sc-entry-details blockquote, .type2-menu-icon, .header.type2 ul, .header.type2 li a, #header.type3 nav#main-menu ul.menu li i, #toTop, #dt-style-picker ul.layout-picker, #dt-style-picker #pattern-holder, #dt-style-picker ul li a.selected, #dt-style-picker ul li a:hover, #dt-style-picker, .dt-sc-parallax-section, .dt-sc-one-fourth article.blog-entry .entry-content, .dt-sc-one-third article.blog-entry .entry-content, .dt-sc-one-fifth article.blog-entry .entry-content, .dt-sc-one-sixth article.blog-entry .entry-content, #dt-contact-map, ul.dt-sc-pagination li a { border-color: #5EAD97; }
+
+.dt-sc-ico-content.type1:hover { -webkit-box-shadow: inset 0px 0px 0px 200px #5EAD97; -moz-box-shadow: inset 0px 0px 0px 200px #5EAD97; box-shadow: inset 0px 0px 0px 200px #5EAD97; }
+
+.dt-sc-portfolio:hover figcaption { -webkit-box-shadow: inset 0px 0px 0px 4px #5EAD97; -moz-box-shadow: inset 0px 0px 0px 4px #5EAD97; box-shadow: inset 0px 0px 0px 4px #5EAD97; }
+.widget #searchform input[type="submit"] { -webkit-box-shadow: inset 0px 0px 0px 1px #5EAD97; -moz-box-shadow: inset 0px 0px 0px 1px #5EAD97; box-shadow: inset 0px 0px 0px 1px #5EAD97; }
+.recent-gallery-container #bx-pager a.active, .recent-gallery-container #bx-pager a:hover { box-shadow: 0 0 0 4px #5EAD97; -moz-box-shadow: 0 0 0 4px #5EAD97; -webkit-box-shadow: 0 0 0 4px #5EAD97; }
+
+td, .dt-sc-tb-title, li.dt-sc-pr-tb-col.selected, li.dt-sc-pr-tb-col:hover, .dt-sc-pr-tb-col.type2.selected .dt-sc-pr-tb-col-wrapper, .dt-sc-pr-tb-col.type2:hover .dt-sc-pr-tb-col-wrapper, .donut-chart.fill, .dt-sc-team.type2 .dt-sc-entry-thumb img,
+.dt-sc-author-info { background: rgba(145,156,112,0.2); }
+
+.menu.type6 a:before, .menu.type6 a:after { border-color: rgba(145,156,112,0.3); }
+
+ol.type2 li:after, .dt-sc-tabs-vertical-container .dt-sc-tabs-vertical-frame li.current, .dt-sc-tabs-vertical-container .dt-sc-tabs-vertical-frame li:hover, .dt-sc-toggle-frame a.dt-sc-toggle-accordion.active, .dt-sc-toggle-frame a.dt-sc-toggle.active, .dt-sc-toggle-frame a.dt-sc-toggle-accordion:hover, .dt-sc-toggle-frame a.dt-sc-toggle:hover, .dt-sc-tabs-frame.dt-sc-pricing-tab li:first-child > a, .style-picker-ico:before { border-left-color: #5EAD97; }
+ol.type4 li:after { border-right-color: #5EAD97; }
+ul.dt-sc-tabs-frame > li > a.current, ul.dt-sc-tabs-frame > li:hover > a, ul.sb-toggle li.sb-toggle-right, #toggle-panel a:before, .dt-sc-portfolio figcaption a.zoom span:after, .dt-sc-portfolio figcaption a.like span:after { border-top-color: #5EAD97; }
+.dt-sc-portfolio figcaption a.view span:after, .dt-sc-portfolio figcaption a.comment span:after, .dt-sc-ico-content.type5 .dt-sc-content:after { border-bottom-color: #5EAD97; }
+
+.dt-sc-tabs-vertical-container .dt-sc-tabs-vertical-frame .icon:before, .dt-sc-ico-content.type1 .icon, .dt-sc-ico-content.type3 .icon { border-color: #5EAD97 transparent; }
+.dt-sc-tabs-vertical-container .dt-sc-tabs-vertical-frame .icon:after, .dt-sc-ico-content.type1 .icon:before, .dt-sc-ico-content.type3 .icon:before { border-color: transparent transparent #5EAD97; }
+
+.boxed .dt-sc-portfolio figcaption a.zoom span:after, .boxed .dt-sc-portfolio figcaption a.like span:after { border-top: 50px solid #5EAD97; }
+.boxed .dt-sc-portfolio figcaption a.comment span:after, .boxed .dt-sc-portfolio figcaption a.view span:after, .view-map.active a { border-bottom: 50px solid #5EAD97; }
+
+.dt-sc-service-boxes:before { background-color: #3d3f36; 
+  /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(linear, left top, right top, from(#97BA53), to(#3d3f36));
+  /* Safari 5.1, Chrome 10+ */
+  background: -webkit-linear-gradient(left, #3d3f36, #97BA53);
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(left, #3d3f36, #97BA53);
+  /* IE 10 */
+  background: -ms-linear-gradient(left, #3d3f36, #97BA53);
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(left, #3d3f36, #97BA53);
+}	
+
+@media only screen and (min-width:1120px) and (max-width:1280) {
+		
+	ul.sb-toggle li.sb-toggle-right { border-top: 80px solid #5EAD97; }
+}
+
+@media only screen and (min-width:768px) and (max-width:1500px) {
+	.dt-sc-portfolio figcaption a.view span:after, .dt-sc-portfolio figcaption a.comment span:after, .boxed .dt-sc-portfolio figcaption a.view span:after, .boxed .dt-sc-portfolio figcaption a.comment span:after { border-bottom: 35px solid #5EAD97; }
+	.dt-sc-portfolio figcaption a.zoom span:after, .dt-sc-portfolio figcaption a.like span:after, .boxed .dt-sc-portfolio figcaption a.zoom span:after, .boxed .dt-sc-portfolio figcaption a.like span:after { border-top: 35px solid #5EAD97; }
+}
+
+@media only screen and (max-width:767px) {
+		
+	.dt-sc-pricing-table ul.type1 li.dt-sc-pr-tb-col { border-color: #5EAD97; }	
+}
+
+@media only screen and (max-width: 479px) {
+	
+	article.blog-entry .entry-content, .dt-sc-post-pagination a.next-post i.fa { border-top: 1px solid #5EAD97; }
+	.dt-sc-post-pagination a.prev-post i.fa { border-bottom: 1px solid #5EAD97; }
+	
+	.dt-sc-portfolio figcaption a.view span:after, .dt-sc-portfolio figcaption a.comment span:after, .boxed .dt-sc-portfolio figcaption a.view span:after, .boxed .dt-sc-portfolio figcaption a.comment span:after { border-bottom: 35px solid #5EAD97; }
+	.dt-sc-portfolio figcaption a.zoom span:after, .dt-sc-portfolio figcaption a.like span:after, .boxed .dt-sc-portfolio figcaption a.zoom span:after, .boxed .dt-sc-portfolio figcaption a.like span:after { border-top: 35px solid #5EAD97; }
+}
+
+@media only screen and (max-width: 319px) {
+
+.dt-sc-tabs-vertical-container .dt-sc-tabs-vertical-frame a:hover .icon i:after, .dt-sc-tabs-vertical-container .dt-sc-tabs-vertical-frame a.current .icon i:after { border-bottom: 50px solid #5EAD97; }
+
+}

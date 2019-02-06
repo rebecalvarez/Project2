@@ -1,0 +1,73 @@
+/* -----------------------------------
+ * Slidebars
+ * Version 0..10
+ * http://plugins.adchsm.me/slidebars/
+ *
+ * Written by Adam Smith
+ * http://www.adchsm.me/
+ *
+ * Released under MIT License
+ * http://plugins.adchsm.me/slidebars/license.txt
+----------------------------------- */
+
+html.sb-scroll-lock.sb-active:not(.sb-static) { overflow: hidden; }
+html.sb-active #sb-site, .sb-toggle-left, .sb-toggle-right, .sb-open-left, .sb-open-right, .sb-close { cursor: pointer; }
+html.sb-static .sb-slidebar, .sb-slidebar.sb-static { position: absolute; }
+
+#sb-site.top-padding { padding-top: 50px; }
+#sb-site, .sb-site-container { width: 100%; position: relative; z-index: 1; background-color: #ffffff;  float: right; }
+
+#fixed-top { position: fixed; top: 0; width: 100%; height: 50px; background-color: red; z-index: 4; }
+#fixed-top span.sb-toggle-left { float: left; color: white; padding: 10px; }
+#fixed-top span.sb-toggle-right { float: right; color: white; padding: 10px; }
+
+.sb-toggle-right { text-align: right; float:right; letter-spacing: 3px; padding: 11px 0; }
+
+.sb-left { left: 0; }
+.sb-right {	right: 0; }
+
+.sb-style-overlay {	z-index: 9999; }
+
+.sb-momentum-scrolling { -webkit-overflow-scrolling: touch; }
+
+.sb-slidebar.sb-active { display: block; }
+.sb-slidebar { padding: 20px; color: #fff; width: 30%; height: 100%; overflow-y: auto; position: fixed; top: 0;	z-index: 0; background-color: #222222; -webkit-transform: translate(0px); transform: translate(0px); -moz-transform: translate(0px); }
+.sb-width-thin { width: 15%; }
+.sb-width-wide { width: 45%; }
+
+@media (max-width: 320px) { 
+	.sb-slidebar { width: 70%; }
+}
+
+@media (min-width: 480px) { 
+	.sb-slidebar { width: 48%; }
+	.sb-width-thin { width: 55%; }
+	.sb-width-wide { width: 85%; }
+}
+
+@media (min-width: 481px) { 
+	.sb-slidebar { width: 55%; }
+	.sb-width-thin { width: 40%; }
+	.sb-width-wide { width: 70%; }
+}
+
+@media (min-width: 768px) { 
+	.sb-slidebar { width: 38%; }
+	.sb-width-thin { width: 25%; }
+	.sb-width-wide { width: 55%; }
+}
+
+@media (min-width: 992px) { 
+	.sb-slidebar { width: 30%; }
+	.sb-width-thin { width: 15%; }
+	.sb-width-wide { width: 45%; }
+}
+
+@media (min-width: 1200px) { 
+	.sb-slidebar { width: 20%; }
+	.sb-width-thin { width: 5%; }
+	.sb-width-wide { width: 35%; }
+}
+
+.sb-slide, #sb-site, .sb-site-container, .sb-slidebar { -webkit-transition-property: -webkit-transform, left, right; -webkit-backface-visibility: hidden; }
+.sb-hide { display: none; }
