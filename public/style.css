@@ -1010,7 +1010,7 @@
 
 		/* search form */
 		.dt-sc-search-form input[type="submit"] { width: 20%; color: #252525; padding: 15px 0px; font-size: 20px; }
-		.dt-sc-search-form input[type="text"] {float: left; width: 75%; background-color: rgb(221, 221, 221,0.5 );  text-align: center; color: #333;  padding: 15px 0px; font-size: 17px; height: 40px;}
+		.dt-sc-search-form input[type="text"] {float: left; border-bottom-width: 0px; width: 75%; background-color: rgb(221, 221, 221,0.5 );  text-align: center; color: #333;  padding: 15px 0px; font-size: 17px; height: 40px;}
 		.dt-sc-search-form input[type="submit"]:hover { background: #fff; }
 		/* .dt-sc-search-form  { align-content: center; }
 		.dt-sc-search-form:before { position: absolute; width: 1px; height: 280px; right: auto; left: -5%; top: -15px; margin: 0px auto; display: block; content: ""; background: #464646; } */
