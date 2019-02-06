@@ -1,33 +1,1019 @@
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
-          </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
-      </div>
+<div id="loader-wrapper">
+        <div id="large-header" class="large-header">
+            <canvas id="demo-canvas"></canvas>
+            <h1 class="top"> Patience is not simply the ability to wait - it's how we behave while we're waiting -
+                <span> Joyce Meyer </span> </h1>
+            <h1> Don't go back to less,just because you are to impatient to wait for the rest - <span> Kacy Lynn </span>
+            </h1>
+        </div>
     </div>
-  </div>
-</div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+    <div class="wrapper">
+        <div class="inner-wrapper type-1">
+
+            <!--Header Starts Here-->
+            <header id="header" class="dt-sticky-menu">
+                <div id="menu-container">
+                    <div class="container">
+                        <div id="logo">
+                            <!-- <a href="index.html"> Poly<span> Stocks</span> </a> -->
+                            <img src="./images/polystocksLogo-color.png" height="60" width="200">
+
+                        </div>
+
+                        <nav id="main-menu">
+                            <div id="dt-menu-toggle" class="dt-menu-toggle">
+                                Menu
+                                <i class="fa fa-bars"></i>
+                            </div>
+                            <ul id="menu">
+                                <li class="current_page_item"><a href="#home">Home</a> </li>
+                                <li><a href="#team">Team</a> </li>
+                                <!-- <li><a href="#contact">Contact</a> </li>   -->
+                                <li><a href="#">Login</a> </li>
+                                <li class="dt-sc-button small type2"><a href="#team">Join</a> </li>
+
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <!--Header Ends Here-->
+
+            <!--Main Content Starts Here-->
+            <div id="main" class="top-slider">
+
+                <!--Home Starts Here-->
+                <section id="home" class="content">
+                    <div class="banner fullwidth-section dt-sc-parallax-section" style="background-position: 70% -1228px;">
+                        <div class="container">
+                            <div class="caption">
+
+                                <h3> SEARCH AND STORE BEAUTIFUL STOCK PHOTOS</h3>
+                                <h6> free photos to use for your projects </h6>
+
+                                <!-- Search Bar -->
+                                <!-- <input type="text" placeholder="Search.."> -->
+                                <div class="search-container">
+                                    <div class="dt-sc-search-form" style="width: 100%;">
+
+                                        <form method="post" action="" class="" name="">
+
+                                            <input type="text" required="" name="txtsearch" title="search for your beautiful photos"
+                                                placeholder="type here...">
+                                            <button href="#" class="dt-sc-button small type1 search-button"><i class="fa fa-search"></i>
+                                            </button>
+
+                                        </form>
+                                        <div class="search-container">
+                                            <strong>Popular Searches: <a class="popularlinks" id="nature" href="#">nature</a> ,
+                                                <a  class="popularlinks" id="travel" href="#">travel</a> , <a class="popularlinks" id="animals" href="#">animals</a>
+                                                , <a class="popularlinks" id="food" href="#">food</a> , <a class="popularlinks" id="fashion" href="#">fashion</a></div>
+                                        </strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- End of search bar -->
+                        </div>
+                    </div>
+            </div>
+            </section>
+            <!--Home Ends Here-->
+
+            <!--About Starts Here-->
+            <!-- <section id="about" class="content">
+                	<div class="service-sliders">
+                        <div class="dt-sc-two-fifth column no-space">
+                            <div class="dt-sc-service-carousel">
+                                <div class="dt-sc-carousel-wrapper">
+                                    <ul class="dt-sc-carousel">
+                                        <li class="dt-sc-service">
+                                            <h2> Create Web Experience </h2>
+                                            <p> Laudem soleat efficiendi eos ad, nam appareat vivendum in. Omnes legendos recteque ex est, ei mea verear officiis. Cu eos latine alienum placerat, quem porro epicurei his ei. Sed dictas malorum id. Cu verear luptatum partiendo usu, cumliber vocibus vivendo ex.Laudem soleat efficiendi eos ad, nam appareat </p>
+                                        </li>
+                                        <li class="dt-sc-service">
+                                            <h2> A road to Heaven</h2>
+                                            <p>We denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue this is an exact detartmation.&nbsp;We denounce with righteous indignation and dislike men who are so beguiled </p>
+                                        </li>
+                                        <li class="dt-sc-service">
+                                            <h2> Creative talks of 2015 </h2>
+                                            <p>There are many variations of passages of Lorem Ipsum available, Omnes legendos recteque ex est, ei mea verear officiis but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+                                        </li>                             
+                                    </ul>
+                                    <div id="pager">
+                                        <a href=""></a>
+                                        <a href=""></a>
+                                        <a href=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>	
+                        <div class="dt-sc-three-fifth column no-space">
+                            <div class="recent-gallery-container">
+                                <ul class="recent-gallery">
+                                    <li> <img src="http://placehold.it/1920x800/252525" alt="image"/> </li>
+                                    <li> <img src="http://placehold.it/1920x800/252525" alt="image"/> </li>
+                                    <li> <img src="http://placehold.it/1920x800/252525" alt="image"/> </li>
+                                    <li> <img src="http://placehold.it/1920x800/252525" alt="image"/> </li>
+                                </ul>
+                                <div id="bx-pager">
+                                    <a href="#" data-slide-index='0'><img src="http://placehold.it/1920x800/252525" alt='image' /></a>
+                                    <a href="#" data-slide-index='1'><img src="http://placehold.it/1920x800/252525" alt='image' /></a>
+                                    <a href="#" data-slide-index='2'><img src="http://placehold.it/1920x800/252525" alt='image' /></a>
+                                    <a href="#" data-slide-index='3'><img src="http://placehold.it/1920x800/252525" alt='image' /></a>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+                    <div class="dt-sc-clear"> </div>
+                    <div class="dt-sc-hr medium"> </div>
+                    <div class="dt-sc-hr-invisible-large"> </div>
+                    <div class="container">
+                        <div class="dt-sc-one-third column first">
+                        	<div class="dt-sc-ico-content type1 animate" data-animation="fadeInUp" data-delay="200">
+                                <div class="icon">
+									<span class="fa fa-cubes"> </span>
+								</div>
+                                <h5><a target="_blank" href="#"> Well Structured </a></h5>
+                                <p> Pri id idque assum reprimique, et modo adhuc iudico his, pri solum suscipit patrioque eu. Alii ocurreret id his, debitis mediocritatem an his. </p>
+                            </div>
+                        </div>
+                        <div class="dt-sc-one-third column">
+                        	<div class="dt-sc-ico-content type1 animate" data-animation="fadeInUp" data-delay="300">
+                                <div class="icon">
+                                    <span class="fa fa-cogs"> </span> 
+                                </div>
+                                <h5><a target="_blank" href="#"> Easy To Customize </a></h5>
+                                <p> Pri id idque assum reprimique, et modo adhuc iudico his, pri solum suscipit patrioque eu. Alii ocurreret id his, debitis mediocritatem an his. </p>
+                            </div>
+                        </div>
+                        <div class="dt-sc-one-third column">
+                        	<div class="dt-sc-ico-content type1 animate" data-animation="fadeInUp" data-delay="400">
+                                <div class="icon"> 
+                                    <span class="fa fa-users"> </span> 
+                                </div>
+                                <h5><a target="_blank" href="#"> Creative Design</a></h5>
+                                <p> Pri id idque assum reprimique, et modo adhuc iudico his, pri solum suscipit patrioque eu. Alii ocurreret id his, debitis mediocritatem an his. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dt-sc-hr-invisible-large"> </div>
+                    <div class="counter-parallax fullwidth-section dt-sc-parallax-section">
+                    	<div class="container">
+                            <div class="dt-sc-one-fourth column first">
+                                <div class="dt-sc-services animate" data-animation="fadeInUp" data-delay="200">
+                                    <h5> Designs Created </h5>
+                                    <h3 class="dt-sc-num-count" data-value="74"> 74 </h3>
+                                </div>
+                            </div>
+                            <div class="dt-sc-one-fourth column">
+                                <div class="dt-sc-services animate" data-animation="fadeInUp" data-delay="300">
+                                    <h5> Product listed </h5>
+                                    <h3 class="dt-sc-num-count" data-value="68"> 68 </h3>
+                                </div>
+                            </div>
+                            <div class="dt-sc-one-fourth column">
+                                <div class="dt-sc-services animate" data-animation="fadeInUp" data-delay="400">
+                                    <h5> awards won </h5>
+                                    <h3 class="dt-sc-num-count" data-value="15"> 15 </h3>   
+                                </div>
+                            </div>
+                            <div class="dt-sc-one-fourth column">
+                                <div class="dt-sc-services animate" data-animation="fadeInUp" data-delay="500">
+                                    <h5> Happy clients </h5>
+                                    <h3 class="dt-sc-num-count" data-value="3000"> 3000 </h3>                    
+                                </div>
+                            </div>
+						</div>
+					</div>
+				</section> -->
+            <!--About Ends Here-->
+
+            <!--Workds Starts Here-->
+            <section id="works" class="content">
+                <div class="dt-sc-sorting-container">
+                    <!-- <a data-filter="*" href="#" title="" class="dt-sc-button type1 small active-sort animate" data-animation="fadeIn" data-delay="100">All</a>
+                        <a data-filter=".outdoor" href="#" title="" class="dt-sc-button type1 small animate" data-animation="fadeIn" data-delay="200">Outdooor</a>
+                        <a data-filter=".indoor" href="#" title="" class="dt-sc-button type1 small animate" data-animation="fadeIn" data-delay="300">Indoor</a>
+                        <a data-filter=".portraits" href="#" title="" class="dt-sc-button type1 small animate" data-animation="fadeIn" data-delay="400">Portraits</a>
+                        <a data-filter=".games" href="#" title="" class="dt-sc-button type1 small animate" data-animation="fadeIn" data-delay="500">Games</a>
+                        <a data-filter=".landscapes" href="#" title="" class="dt-sc-button type1 small animate" data-animation="fadeIn" data-delay="600">Landscapes</a> -->
+                </div>
+                <div class="dt-sc-portfolio-container animate" data-animation="fadeIn" data-delay="100">
+                    <div class="dt-sc-portfolio indoor games width3">
+                        <figure>
+                            <img src="http://placehold.it/800x400&text=Portfolio+Image" alt="" title="">
+                            <figcaption>
+                                <div class="fig-overlay">
+                                    <h6><a href="portfolio-detail.html">World is Ours</a></h6>
+                                    <div class="external-icons">
+                                        <a class="zoom" href="http://placehold.it/800x400&text=Portfolio+Image"
+                                            data-gal="prettyPhoto[gallery]" title="World is Ours"> <span class="fa fa-search-plus">
+                                            </span> </a>
+                                        <a class="like" href="#"> <span class="fa fa-heart"> </span> </a>
+                                        <a class="comment" href="portfolio-detail.html"> <span class="fa fa-comment">
+                                            </span> </a>
+                                        <a class="view" href="portfolio-detail.html"> <span class="fa fa-external-link">
+                                            </span> </a>
+                                    </div>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="dt-sc-portfolio outdoor indoor width1">
+                        <figure>
+                            <img src="http://placehold.it/800x1276&text=Portfolio+Image" alt="" title="">
+                            <figcaption>
+                                <div class="fig-overlay">
+                                    <h6><a href="portfolio-detail.html">Love the Life</a></h6>
+                                    <div class="external-icons">
+                                        <a class="zoom" href="http://placehold.it/800x1276&text=Portfolio+Image"
+                                            data-gal="prettyPhoto[gallery]" title="Love the Life"> <span class="fa fa-search-plus">
+                                            </span> </a>
+                                        <a class="like" href="#"> <span class="fa fa-heart"> </span> </a>
+                                        <a class="comment" href="portfolio-detail.html"> <span class="fa fa-comment">
+                                            </span> </a>
+                                        <a class="view" href="portfolio-detail.html"> <span class="fa fa-external-link">
+                                            </span> </a>
+                                    </div>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="dt-sc-portfolio portraits landscapes width4">
+                        <figure>
+                            <img src="http://placehold.it/800x582&text=Portfolio+Image" alt="" title="">
+                            <figcaption>
+                                <div class="fig-overlay">
+                                    <h6><a href="portfolio-detail.html">Live, Let Live</a></h6>
+                                    <div class="external-icons">
+                                        <a class="zoom" href="http://placehold.it/800x582&text=Portfolio+Image"
+                                            data-gal="prettyPhoto[gallery]" title="Live, Let Live"> <span class="fa fa-search-plus">
+                                            </span> </a>
+                                        <a class="like" href="#"> <span class="fa fa-heart"> </span> </a>
+                                        <a class="comment" href="portfolio-detail.html"> <span class="fa fa-comment">
+                                            </span> </a>
+                                        <a class="view" href="portfolio-detail.html"> <span class="fa fa-external-link">
+                                            </span> </a>
+                                    </div>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="dt-sc-portfolio outdoor portraits width3 adjust">
+                        <figure>
+                            <img src="http://placehold.it/800x800&text=Portfolio+Image" alt="" title="">
+                            <figcaption>
+                                <div class="fig-overlay">
+                                    <h6><a href="portfolio-detail.html">Reach for the stars</a></h6>
+                                    <div class="external-icons">
+                                        <a class="zoom" href="http://placehold.it/800x800&text=Portfolio+Image"
+                                            data-gal="prettyPhoto[gallery]" title="Reach for the stars"> <span class="fa fa-search-plus">
+                                            </span> </a>
+                                        <a class="like" href="#"> <span class="fa fa-heart"> </span> </a>
+                                        <a class="comment" href="portfolio-detail.html"> <span class="fa fa-comment">
+                                            </span> </a>
+                                        <a class="view" href="portfolio-detail.html"> <span class="fa fa-external-link">
+                                            </span> </a>
+                                    </div>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="dt-sc-portfolio indoor games width3">
+                        <figure>
+                            <img src="http://placehold.it/800x400&text=Portfolio+Image" alt="" title="">
+                            <figcaption>
+                                <div class="fig-overlay">
+                                    <h6><a href="portfolio-detail.html">Begin With a Smile</a></h6>
+                                    <div class="external-icons">
+                                        <a class="zoom" href="http://placehold.it/800x400&text=Portfolio+Image"
+                                            data-gal="prettyPhoto[gallery]" title="Begin With a Smile"> <span class="fa fa-search-plus">
+                                            </span> </a>
+                                        <a class="like" href="#"> <span class="fa fa-heart"> </span> </a>
+                                        <a class="comment" href="portfolio-detail.html"> <span class="fa fa-comment">
+                                            </span> </a>
+                                        <a class="view" href="portfolio-detail.html"> <span class="fa fa-external-link">
+                                            </span> </a>
+                                    </div>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="dt-sc-portfolio outdoor landscapes width5">
+                        <figure>
+                            <img src="http://placehold.it/800x400&text=Portfolio+Image" alt="" title="">
+                            <figcaption>
+                                <div class="fig-overlay">
+                                    <h6><a href="portfolio-detail.html">Life is a Race</a></h6>
+                                    <div class="external-icons">
+                                        <a class="zoom" href="http://placehold.it/800x400&text=Portfolio+Image"
+                                            data-gal="prettyPhoto[gallery]" title="Life is a Race"> <span class="fa fa-search-plus">
+                                            </span> </a>
+                                        <a class="like" href="#"> <span class="fa fa-heart"> </span> </a>
+                                        <a class="comment" href="portfolio-detail.html"> <span class="fa fa-comment">
+                                            </span> </a>
+                                        <a class="view" href="portfolio-detail.html"> <span class="fa fa-external-link">
+                                            </span> </a>
+                                    </div>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="dt-sc-portfolio games landscapes width1">
+                        <figure>
+                            <img src="http://placehold.it/800x1276&text=Portfolio+Image" alt="" title="">
+                            <figcaption>
+                                <div class="fig-overlay">
+                                    <h6><a href="portfolio-detail.html">An Adventure</a></h6>
+                                    <div class="external-icons">
+                                        <a class="zoom" href="http://placehold.it/800x1276&text=Portfolio+Image"
+                                            data-gal="prettyPhoto[gallery]" title="An Adventure"> <span class="fa fa-search-plus">
+                                            </span> </a>
+                                        <a class="like" href="#"> <span class="fa fa-heart"> </span> </a>
+                                        <a class="comment" href="portfolio-detail.html"> <span class="fa fa-comment">
+                                            </span> </a>
+                                        <a class="view" href="portfolio-detail.html"> <span class="fa fa-external-link">
+                                            </span> </a>
+                                    </div>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="dt-sc-portfolio indoor width2">
+                        <figure>
+                            <img src="http://placehold.it/800x582&text=Portfolio+Image" alt="" title="">
+                            <figcaption>
+                                <div class="fig-overlay">
+                                    <h6><a href="portfolio-detail.html">Live and Let Live</a></h6>
+                                    <div class="external-icons">
+                                        <a class="zoom" href="http://placehold.it/800x582&text=Portfolio+Image"
+                                            data-gal="prettyPhoto[gallery]" title="Live and Let Live"> <span class="fa fa-search-plus">
+                                            </span> </a>
+                                        <a class="like" href="#"> <span class="fa fa-heart"> </span> </a>
+                                        <a class="comment" href="portfolio-detail.html"> <span class="fa fa-comment">
+                                            </span> </a>
+                                        <a class="view" href="portfolio-detail.html"> <span class="fa fa-external-link">
+                                            </span> </a>
+                                    </div>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="dt-sc-portfolio outdoor portraits width2">
+                        <figure>
+                            <img src="http://placehold.it/800x582&text=Portfolio+Image" alt="" title="">
+                            <figcaption>
+                                <div class="fig-overlay">
+                                    <h6><a href="portfolio-detail.html">Love conquers all</a></h6>
+                                    <div class="external-icons">
+                                        <a class="zoom" href="http://placehold.it/800x582&text=Portfolio+Image"
+                                            data-gal="prettyPhoto[gallery]" title="Love conquers all"> <span class="fa fa-search-plus">
+                                            </span> </a>
+                                        <a class="like" href="#"> <span class="fa fa-heart"> </span> </a>
+                                        <a class="comment" href="portfolio-detail.html"> <span class="fa fa-comment">
+                                            </span> </a>
+                                        <a class="view" href="portfolio-detail.html"> <span class="fa fa-external-link">
+                                            </span> </a>
+                                    </div>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="dt-sc-portfolio games landscapes width4 adjust">
+                        <figure>
+                            <img src="http://placehold.it/800x291&text=Portfolio+Image" alt="" title="">
+                            <figcaption>
+                                <div class="fig-overlay">
+                                    <h6><a href="portfolio-detail.html">Dream Your Life</a></h6>
+                                    <div class="external-icons">
+                                        <a class="zoom" href="http://placehold.it/800x291&text=Portfolio+Image"
+                                            data-gal="prettyPhoto[gallery]" title="Love conquers all"> <span class="fa fa-search-plus">
+                                            </span> </a>
+                                        <a class="like" href="#"> <span class="fa fa-heart"> </span> </a>
+                                        <a class="comment" href="portfolio-detail.html"> <span class="fa fa-comment">
+                                            </span> </a>
+                                        <a class="view" href="portfolio-detail.html"> <span class="fa fa-external-link">
+                                            </span> </a>
+                                    </div>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <!-- <div class="dt-sc-hr-invisible-large"> </div>
+                	<div class="container">
+                        <div class="dt-sc-services-boxes">
+                            <div class="dt-sc-one-half column first">
+                                <div class="dt-sc-ico-content-right">
+                                    <div class="dt-sc-ico-content type2">
+                                        <div class="icon">
+                                            <span class="fa fa-desktop"> </span>
+                                        </div>
+                                        <div class="dt-sc-content animate" data-animation="fadeInLeft" data-delay="200">
+                                            <h5><a target="_blank" href="#"> Web Design </a></h5>
+                                            <p> Magna cetero salutatus has in, vix eu velit senserit, noster argumentum ne vix. Altera laoreet posidonium has et. </p>
+                                        </div>
+                                    </div>
+                                    <div class="dt-sc-hr-invisible-toosmall"> </div>
+                                    <div class="dt-sc-ico-content type2">
+                                        <div class="icon">
+                                            <span class="fa fa-headphones"> </span>
+                                        </div>
+                                        <div class="dt-sc-content animate" data-animation="fadeInLeft" data-delay="200">
+                                            <h5><a target="_blank" href="#"> Marketing </a></h5>
+                                            <p> Magna cetero salutatus has in, vix eu velit senserit, noster argumentum ne vix. Altera laoreet posidonium has et. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dt-sc-one-half column">
+                                <div class="dt-sc-ico-content-left">
+                                    <div class="dt-sc-ico-content type2">
+                                        <div class="icon">
+                                            <span class="fa fa-empire"> </span>
+                                        </div>
+                                        <div class="dt-sc-content animate" data-animation="fadeInRight" data-delay="200">
+                                            <h5><a target="_blank" href="#"> Branding </a></h5>
+                                            <p> Magna cetero salutatus has in, vix eu velit senserit, noster argumentum ne vix. Altera laoreet posidonium has et. </p>
+                                        </div>
+                                    </div>
+                                    <div class="dt-sc-hr-invisible-toosmall"> </div>
+                                    <div class="dt-sc-ico-content type2">
+                                        <div class="icon">
+                                            <span class="fa fa-camera"> </span>
+                                        </div>
+                                        <div class="dt-sc-content animate" data-animation="fadeInRight" data-delay="200">
+                                            <h5><a target="_blank" href="#"> Photography </a></h5>
+                                            <p> Magna cetero salutatus has in, vix eu velit senserit, noster argumentum ne vix. Altera laoreet posidonium has et. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="what-we-do">
+                                <h4> What <br> We <br> Do </h4>
+                            </div>
+                        </div>
+					</div>
+                    <div class="dt-sc-hr-invisible-large"> </div>
+                    <div class="intro-parallax fullwidth-section dt-sc-parallax-section aligncenter">
+                    	<div class="container">
+                            <h2 class="main-title animate" data-animation="fadeIn" data-delay="200"> get in touch with us <span> If you have any questions, do not hesitate to contact us </span> </h2>
+                            <h3 class="animate" data-animation="fadeIn" data-delay="300"> <i class="fa fa-phone-square"></i> Contact - (+91) 9876543210 </h3>
+                            <a href="#" class="dt-sc-button type1 small animate" data-animation="fadeIn" data-delay="400"> contact now </a>
+						</div>
+					</div>
+                    <div class="dt-sc-hr-invisible-small"> </div> -->
+            </section>
+            <!--Work Ends Here-->
+
+            <!--Team Starts Here-->
+            <section id="team" name="team" class="content">
+                <div class="dt-sc-hr-invisible"> </div>
+                <div class="container">
+                    <h2 class="main-title"> Our Team <span> Developing with Passion and Creativity </span> </h2>
+                    <ul id="team-section" class="animate" data-animation="fadeIn" data-delay="100">
+                        <li class="pusher"></li>
+                        <li>
+                            <div class="team-details">
+                                <img src="http://placehold.it/270x270&text=Team+Image" alt="" />
+                                <h5>Steve Jobs <span> CEO </span> </h5>
+                                <p>
+                                    <a href="#" class="linkedIn"> <i class="fa fa-linkedin"></i> </a>
+                                    <a href="#" class="github"> <i class="fa fa-github"></i> </a>
+                                    <a href="#" class="email"> <i class="fa fa-envelope"></i> </a>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="team-details">
+                                <img src="http://placehold.it/270x270&text=Team+Image" alt="" />
+                                <h5>Indra Nooyi <span> Marketing Head </span> </h5>
+                                <p>
+                                    <a href="#" class="linkedIn"> <i class="fa fa-linkedin"></i> </a>
+                                    <a href="#" class="github"> <i class="fa fa-github"></i> </a>
+                                    <a href="#" class="email"> <i class="fa fa-envelope"></i> </a>
+                                </p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="team-details">
+                                <img src="http://placehold.it/270x270&text=Team+Image" alt="" />
+                                <h5> Brad Smith <span> HR Manager </span> </h5>
+                                <p>
+                                    <a href="#" class="linkedIn"> <i class="fa fa-linkedin"></i> </a>
+                                    <a href="#" class="github"> <i class="fa fa-github"></i> </a>
+                                    <a href="#" class="email"> <i class="fa fa-envelope"></i> </a>
+                                </p>
+                            </div>
+                        </li>
+                        <li class="middle-content">
+                            <div class="team-details empty-text">
+                                <h3> Team Effort </h3>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="team-details">
+                                <img src="http://placehold.it/270x270&text=Team+Image" alt="" />
+                                <h5> David Cote <span> Team Leader </span> </h5>
+                                <p>
+                                    <a href="#" class="linkedIn"> <i class="fa fa-linkedin"></i> </a>
+                                    <a href="#" class="github"> <i class="fa fa-github"></i> </a>
+                                    <a href="#" class="email"> <i class="fa fa-envelope"></i> </a>
+                                </p>
+                            </div>
+                        </li>
+                        <li class="pusher"></li>
+                        <li class="middle-content">
+                            <div class="team-details empty-text">
+                                <h3> Creativity </h3>
+                            </div>
+                        </li>
+                        <!-- <li>
+                              <div class="team-details">
+                                <img src="http://placehold.it/270x270&text=Team+Image" alt=""/>
+                                <h5>Meg Whitman <span> Sr.Developer </span> </h5>
+                                <p>
+                                        <a href="#" class="linkedIn"> <i class="fa fa-linkedin"></i> </a>
+                                        <a href="#" class="github"> <i class="fa fa-github"></i> </a>
+                                        <a href="#" class="email"> <i class="fa fa-envelope"></i> </a>
+                                    </p>
+                            </div>
+                          </li> -->
+                        <li class="middle-content">
+                            <div class="team-details empty-text">
+                                <h3> Exploration </h3>
+                            </div>
+                        </li>
+                        <!-- <li>
+                              <div class="team-details">
+                                <img src="http://placehold.it/270x270&text=Team+Image" alt=""/>
+                                <h5>Steve Ballmer <span> Sr.Designer </span> </h5>
+                                <p>
+                                        <a href="#" class="linkedIn"> <i class="fa fa-linkedin"></i> </a>
+                                        <a href="#" class="github"> <i class="fa fa-github"></i> </a>
+                                        <a href="#" class="email"> <i class="fa fa-envelope"></i> </a>
+                                    </p>
+                            </div>
+                          </li> -->
+                    </ul>
+                </div>
+                <div class="dt-sc-hr-invisible"> </div>
+                <!-- <div class="service-parallax fullwidth-section dt-sc-parallax-section aligncenter">
+                        <div class="container">
+                            <div class="dt-sc-service-boxes animate" data-animation="fadeInUp" data-delay="200">
+                                <div class="dt-sc-one-fifth column no-space first">
+                                    <div class="dt-sc-ico-content type5 one">
+                                        <h5><a target="_blank" href="#"> 1. Plan </a></h5>
+                                        <div class="dt-sc-content">
+                                            <i class="fa fa-bell"></i>
+                                            <p> Pri id idque assum reprimique, et modo adhuc iudico his. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dt-sc-one-fifth column no-space first">
+                                    <div class="dt-sc-ico-content type5 two">
+                                        <h5><a target="_blank" href="#"> 2. Discuss </a></h5>
+                                        <div class="dt-sc-content">
+                                            <i class="fa fa-apple"> </i>  
+                                            <p> Pri id idque assum reprimique, et modo adhuc iudico his, pri solum suscipit patrioque eu. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dt-sc-one-fifth column no-space first">
+                                    <div class="dt-sc-ico-content type5 three">
+                                        <h5><a target="_blank" href="#"> 3. Execute </a></h5>
+                                        <div class="dt-sc-content">
+                                            <i class="fa fa-suitcase"> </i>  
+                                            <p> Pri id idque assum reprimique, et modo adhuc iudico his, pri solum suscipit patrioque eu. Alii ocurreret mediocritatem an his. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dt-sc-one-fifth column no-space first">
+                                    <div class="dt-sc-ico-content type5 four">
+                                        <h5><a target="_blank" href="#"> 4. Production </a></h5>
+                                        <div class="dt-sc-content">
+                                            <i class="fa fa-camera"> </i>  
+                                            <p> Pri id idque assum reprimique, et modo adhuc iudico his, pri solum suscipit patrioque eu. Alii ocurreret id his, debitis mediocritatem an his. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dt-sc-one-fifth column no-space first">
+                                    <div class="dt-sc-ico-content type5 five">
+                                        <h5><a target="_blank" href="#"> 5. Deploy </a></h5>
+                                        <div class="dt-sc-content">
+                                            <i class="fa fa-cog"> </i>  
+                                            <p> Pri id idque assum reprimique, et modo adhuc iudico his, pri solum suscipit patrioque eu. Alii ocurreret id his, debitis mediocritatem an his. Laudem soleat efficiendi eos ad. </p>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>                           
+                        </div>
+					</div>
+                    <div class="dt-sc-hr-invisible"> </div>
+                    <div class="container">
+                    	<div class="dt-sc-testimonial-carousel-wrapper">
+                            <ul class="dt-sc-testimonial-carousel">
+                                <li class="dt-sc-testimonial animate" data-animation="fadeIn" data-delay="300">
+                                	<div class="dt-sc-testimonial-mask"> </div>
+									<img src="http://placehold.it/400x400&text=Testimonial+Image" alt="">
+                                    <blockquote> "Laudem soleat efficiendi eos ad. Omnes legendos recteque exis estei mea verear officiis. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." </blockquote>
+                                    <cite> Jason Mathew </cite>
+                                </li>
+                                <li class="dt-sc-testimonial animate" data-animation="fadeIn" data-delay="300">
+                                	<div class="dt-sc-testimonial-mask"> </div>
+									<img src="http://placehold.it/400x400&text=Testimonial+Image" alt="">
+                                   <blockquote> "Laudem soleat efficiendi eos ad. Omnes legendos recteque exis estei mea verear officiis. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." </blockquote>
+                                    <cite> Reena Shanjith </cite>
+                                </li>
+                                <li class="dt-sc-testimonial animate" data-animation="fadeIn" data-delay="300">
+                                	<div class="dt-sc-testimonial-mask"> </div>
+									<img src="http://placehold.it/400x400&text=Testimonial+Image" alt="">
+                                    <blockquote> "Laudem soleat efficiendi eos ad. Omnes legendos recteque exis estei mea verear officiis. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." </blockquote>
+                                    <cite> John Carter </cite>
+                                </li>                             
+                            </ul>
+                            <div id="testimonial-pager">
+                                <a href=""></a>
+                                <a href=""></a>
+                                <a href=""></a>
+                            </div>
+                        </div>
+					</div> -->
+                <div class="dt-sc-hr-invisible"> </div>
+            </section>
+            <!--Team Ends Here-->
+
+            <!--Services Starts Here-->
+            <!-- <section id="services" class="content"> 
+                    <div class="client-parallax fullwidth-section dt-sc-parallax-section aligncenter">
+                        <div class="container">
+                            <h3 class="parallax-title"> our great Partner's </h3> 
+                            <div class="dt-sc-client-carousel-wrapper">
+                                <ul class="dt-sc-client-carousel">
+                                    <li> <a href="#" title=""> <img src="http://placehold.it/160x160&text=Client+Image" alt=""> </a> </li>
+                                    <li> <a href="#" title=""> <img src="http://placehold.it/160x160&text=Client+Image" alt=""> </a> </li>
+                                    <li> <a href="#" title=""> <img src="http://placehold.it/160x160&text=Client+Image" alt=""> </a> </li>
+                                    <li> <a href="#" title=""> <img src="http://placehold.it/160x160&text=Client+Image" alt=""> </a> </li>
+                                    <li> <a href="#" title=""> <img src="http://placehold.it/160x160&text=Client+Image" alt=""> </a> </li>
+                                    <li> <a href="#" title=""> <img src="http://placehold.it/160x160&text=Client+Image" alt=""> </a> </li>                  
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+					<div class="dt-sc-tabs-vertical-container">
+                        <ul class="dt-sc-tabs-vertical-frame">
+                            <li class="animate" data-animation="fadeInDown" data-delay="200">
+                            	<a href="#"> 
+                                	<div class="icon">
+                                		<i class="fa fa-phone"></i>
+                                    </div>
+                                	<h5> 24 / 7 support </h5>
+                                    <h6> <span> Ssalutatus has in, vix eu velit senserit </span> </h6>
+                                </a>
+                            </li>
+                            <li class="animate" data-animation="fadeInDown" data-delay="200">
+                            	<a href="#"> 
+                                	<div class="icon">
+                                		<i class="fa fa-cogs"></i>
+                                    </div>
+                                	<h5> Easy Customization </h5>
+                                    <h6> <span> Cetero salutatus has in, vix eu senserit </span> </h6>
+                                </a>
+                            </li>                            
+                            <li class="animate" data-animation="fadeInDown" data-delay="200">
+                            	<a href="#"> 
+                                	<div class="icon">
+                                		<i class="fa fa-cloud-upload"></i>
+                                    </div>
+                                	<h5> Easy to Update </h5>
+                                    <h6> <span> Etero salutatus has noster argumentum. </span> </h6>
+                                </a>
+                            </li>
+                            <li class="animate" data-animation="fadeInDown" data-delay="200">
+                            	<a href="#"> 
+                                	<div class="icon">
+                                		<i class="fa fa-sliders"></i>
+                                    </div>
+                                	<h5> Clean & simple codes </h5>
+                                    <h6> <span> Velit senserit, noster argumentum ne vix. </span> </h6>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="dt-sc-tabs-vertical-frame-content">
+                        	<div class="tab-content animate" data-animation="fadeInLeft" data-delay="200">
+                                <div class="dt-sc-three-fifth column first">
+                                    <h3> You have the best class support! </h3>
+                                    <p> Pro ut labore probatus accommodare. Lorem ipsum dolor sit amet, consectetur adipiscing elit. At iudico persecuti has, sea no deleniti ullamcorper. Docendi apeirian et quo, has feugiat lucilius definitiones an. Sed epicuri ocurreret in, per quando expetenda splendide ne...  </p>
+                                    <ul class="dt-sc-fancy-list rounded-arrow">
+                                        <li>Phasellus congue purus ut lectus malesuada gravida.</li>
+                                        <li>Nulla ultrices odio vitae ligula imperdiet, vitae condimentum sem egestas.</li>
+                                        <li>Praesent sagittis libero blandit vehicula sodales</li>
+                                    </ul>
+                                    <p> Laudem soleat efficiendi eos ad. Omnes legendos recteque exis estei mea verear officiis. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Pro ut labore probatus accommodare. </p> 
+                                    <p> Pro ut labore probatus accommodare. Lorem ipsum dolor sit amet, consectetur adipiscing elit. At iudico persecuti has, sea no deleniti ullamcorper. Docendi apeirian et quo, has feugiat lucilius definitiones an. Sed epicuri ocurreret in, per quando expetenda splendide ne... </p> 
+                                    <a class="dt-sc-button small type1 with-icon" href="#"><i class="fa fa-download"> </i>  <span> Purchase Template </span> </a>
+                                    <a class="dt-sc-button small type1 with-icon" href="#"><i class="fa fa-video-camera"> </i>  <span> Live Demo </span> </a>
+                                </div>
+                                <div class="dt-sc-two-fifth column">
+                               		<img src="http://placehold.it/497x491&text=Tabs+Image" alt="">
+                                </div>
+							</div>
+                        </div>
+                        <div class="dt-sc-tabs-vertical-frame-content">
+                        	<div class="tab-content">
+                                <div class="dt-sc-two-third column first">
+                                    <h3> Customizing Hydro is too easy! </h3>
+                                    <p> Laudem soleat efficiendi eos ad. Omnes legendos recteque exis estei mea verear officiis. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Pro ut labore probatus accommodare. Lorem ipsum dolor sit amet, consectetur adipiscing elit. At iudico persecuti has, sea no deleniti ullamcorper. Docendi apeirian et quo, has feugiat lucilius definitiones an. Sed epicuri ocurreret in, per quando expetenda splendide ne... </p>  
+                                    <div class="dt-sc-one-half column first">
+                                        <ol class="lower-alpha">
+                                            <li><span>Lorem ipsum dolor sit consectetur elit</span></li>
+                                            <li><span>Integer pretium mauris non sem ultrices </span></li>
+                                            <li><span>Quisque nec augue nec ligula suscipit</span></li>
+                                            <li><span>Lorem ipsum dolor sit consectetur elit</span></li>
+                                            <li><span>Integer pretium mauris non sem ultrices </span></li>
+                                        </ol>
+									</div>
+                                    <div class="dt-sc-one-half column">
+                                        <ol class="lower-alpha">
+                                            <li><span>Lorem ipsum dolor sit consectetur elit</span></li>
+                                            <li><span>Integer pretium mauris non sem ultrices </span></li>
+                                            <li><span>Quisque nec augue nec ligula suscipit</span></li>
+                                            <li><span>Lorem ipsum dolor sit consectetur elit</span></li>
+                                            <li><span>Integer pretium mauris non sem ultrices </span></li>
+                                        </ol>
+									</div>
+                                </div>  
+                                <div class="dt-sc-one-third column">  
+                                    <img class="non-sticky" src="http://placehold.it/415x454&text=Tabs+Image" alt="">
+                                </div>               		
+                            </div>
+                        </div>
+                        <div class="dt-sc-tabs-vertical-frame-content">
+                        	<div class="tab-content">
+                                <div class="dt-sc-one-half column first">
+                                	<h3> Feel Free To Update your Website! </h3>
+                                    <div class="dt-sc-one-half column first">
+                                        <div class="dt-sc-ico-content type4">
+                                            <div class="icon">
+                                                <span class="fa fa-photo"> </span> 
+                                            </div>
+                                            <h5><a target="_blank" href="#"> Knowledge Base </a></h5>
+                                            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pro ut labore probatus accommodare. </p>  
+                                        </div>
+                                        <div class="dt-sc-ico-content type4">
+                                            <div class="icon">
+                                                <span class="fa fa-line-chart"> </span> 
+                                            </div>
+                                            <h5><a target="_blank" href="#"> Neat Documentation </a></h5>
+                                            <p> Pro ut labore probatus accommodare. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>  
+                                        </div>
+                                        <div class="dt-sc-ico-content type4">
+                                            <div class="icon">
+                                                <span class="fa fa-gear"> </span> 
+                                            </div>
+                                            <h5><a target="_blank" href="#"> Comments Support </a></h5>
+                                            <p> Pro ut labore probatus accommodare. Lorem ipsum dolor sit amet, a porttitor adipiscing elit. </p>  
+                                        </div>
+                                    </div>
+									<div class="dt-sc-one-half column">
+                                        <div class="dt-sc-ico-content type4">
+                                            <div class="icon">
+                                                <span class="fa fa-cubes"> </span>
+                                            </div>
+                                            <h5><a target="_blank" href="#"> Well Structured </a></h5>
+                                            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pro ut labore probatus accommodare. </p>  
+                                        </div>
+                                        <div class="dt-sc-ico-content type4">
+                                            <div class="icon">
+                                                <span class="fa fa-video-camera"> </span> 
+                                            </div>
+                                            <h5><a target="_blank" href="#"> Email Support </a></h5>
+                                            <p> Pro ut labore probatus accommodare. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>  
+                                        </div>
+                                        <div class="dt-sc-ico-content type4">
+                                            <div class="icon"> 
+                                                <span class="fa fa-users"> </span> 
+                                            </div>
+                                            <h5><a target="_blank" href="#"> Creative Design</a></h5>
+                                            <p> Pro ut labore probatus accommodare. Lorem ipsum dolor sit amet, a porttitor adipiscing elit. </p>  
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dt-sc-one-half column">
+                                    <img src="http://placehold.it/670x485&text=Tabs+Image" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dt-sc-tabs-vertical-frame-content">
+                        	<div class="tab-content">
+                                <div class="dt-sc-one-half column first">
+                                	<h3> Clean &amp; Simple Code! </h3>
+                                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi hendrerit elit turpis, a porttitor tellus sollicitudin at. Class aptent taciti sociosqu ad litora torquent per conubia, per inceptos himenaeos. </p>
+                                    <p> Pro ut labore probatus accommodare. Lorem ipsum dolor sit amet, consectetur adipiscing elit. At iudico persecuti has, sea no deleniti ullamcorper. </p>
+                                    <div class="dt-sc-clear"> </div>
+                                    <ol class="type2">
+                                        <li> <span> Phasellus congue purus per inceptos himenaeos. </span> </li>
+                                        <li> <span> Lorem ipsum dolor consectetur adipiscing elit. </span> </li>
+                                        <li> <span> Praesent sagittis libero blandit vehicula sodales. </span> </li>          
+                                    </ol>
+                                </div>
+                                <div class="dt-sc-one-half column">
+									<img class="non-sticky tab-4" src="http://placehold.it/640x435&text=Tabs+Image" alt="">
+                                </div>
+							</div>
+                        </div>
+                    </div>
+                    <div class="twitter-parallax fullwidth-section dt-sc-parallax-section">
+                    	<div class="container animate" data-animation="fadeIn" data-delay="200">
+                        	<div class="twitter-icon">
+                        		<i class="fa fa-twitter"></i>
+                            </div>
+                            <h3 class="main-title"> Latest Tweets </h3>
+                            <div class="latest-tweets tweets_container"> </div>
+						</div>
+					</div>
+				</section> -->
+            <!--Services ends Here-->
+
+            <!--Blog Starts Here-->
+            <!-- <section id="blog" class="content"> 
+                	<div class="dt-sc-hr-invisible-medium"> </div>
+					<div class="container">   
+                        <h2 class="main-title"> in our updates <span> we enjoy following these trends </span> </h2> 
+                        <div class="dt-sc-hr-invisible-toosmall"> </div>
+                        <div class="dt-sc-one-half column first">
+                        	<article class="blog-entry animate" data-animation="fadeInLeft" data-delay="100">
+                                <div class="entry-thumb">
+                                    <a href="blog-detail-with-lhs.html">
+                                        <img title="" alt="" src="http://placehold.it/1200x590&text=Blog+Image">
+                                        <div class="entry-title">
+                                            <h5>Discussions while working as a team in a Project</h5>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="entry-details">
+                                    <div class="entry-meta">
+                                        <div class="date">
+                                            <span>19</span>
+                                        </div>
+                                        <div class="month">
+                                           <p> feb <br> 2015 </p>
+                                        </div>
+                                    </div>
+                                    <div class="tags">
+                                    	<a href="#"> <i class="fa fa-comments"></i> <span> 11 Comments </span> </a>
+                                    	<a href="#"> <i class="fa fa-heart"></i> <span> 54 Likes </span> </a>
+                                        <a href="#"> <i class="fa fa-eye"></i> <span> 123 Views </span> </a>   
+                                        <a href="#"> <i class="fa fa-tags"></i> <span> Love </span> </a>                                     
+                                	</div>
+                                </div>
+                                <div class="entry-content">
+                                	<p> Pro ut labore probatus accommodare. At iudico persecuti has, sea no deleniti ullamcorper. Docendi apeirian et quo, has feugiat lucilius definitiones an. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi hendrerit elit turpis, a porttitor tellus sollicitudin at. Sed epicuri ocurreret in, per quando expetenda splendide ne...  </p>
+                                </div>
+                                <a href="#" class="read-more"> Read more <i class="fa fa-angle-right"></i> </a>
+                            </article>
+                        </div>
+                        <div class="dt-sc-one-half column">
+                        	<article class="blog-entry animate" data-animation="fadeInRight" data-delay="100">
+                                <div class="entry-thumb">
+                                    <a href="blog-detail-with-lhs.html">
+                                        <img title="" alt="" src="http://placehold.it/1200x590&text=Blog+Image">
+                                        <div class="entry-title">
+                                            <h5>Exposing the Beauty in the World Through Photography </h5>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="entry-details">
+                                    <div class="entry-meta">
+                                        <div class="date">
+                                            <span>20</span>
+                                        </div>
+                                        <div class="month">
+                                           <p> feb <br> 2015 </p>
+                                        </div>
+                                    </div>
+                                    <div class="tags">
+                                    	<a href="#"> <i class="fa fa-comments"></i> <span> 11 Comments </span> </a>
+                                    	<a href="#"> <i class="fa fa-heart"></i> <span> 54 Likes </span> </a>
+                                        <a href="#"> <i class="fa fa-eye"></i> <span> 123 Views </span> </a>   
+                                        <a href="#"> <i class="fa fa-tags"></i> <span> Love </span> </a>                                     
+                                	</div>
+                                </div>
+                                <div class="entry-content">
+                                	<p> Pro ut labore probatus accommodare. At iudico persecuti has, sea no deleniti ullamcorper. Docendi apeirian et quo, has feugiat lucilius definitiones an. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi hendrerit elit turpis, a porttitor tellus sollicitudin at. Sed epicuri ocurreret in, per quando expetenda splendide ne...  </p>
+                                </div>
+                                <a href="#" class="read-more"> Read more <i class="fa fa-angle-right"></i> </a>
+                            </article>
+                        </div>
+                        <div class="dt-sc-hr-invisible-small"> </div>
+                        <div class="aligncenter">
+                        	<a href="blog-single.html" class="dt-sc-button type1 small"> View All </a>      
+                        </div>                  
+					</div>
+                    <div class="dt-sc-hr-invisible-medium"> </div>
+				</section> -->
+            <!--Blog Ends Here-->
+
+            <!--Contact Starts Here-->
+            <!-- <section id="contact" class="content">
+                    <div class="view-map">
+                        <a href="#" class="dt-marker"> <i class="fa fa-map-marker"></i> </a>
+                    </div> 
+                    <footer>
+                    	<div id="dt-contact-map"> </div>
+                        <div id="dt-contact-content">
+                        	<div class="container">
+                                <div class="dt-sc-one-third column first">
+                                    <div class="dt-sc-contact-info">
+                                        <h5 class="sub-title alignleft"> Location </h5>
+                                        
+                                        <p> Austin, Texas <br>  United States </p>
+                                    </div>
+                                    <div class="dt-sc-contact-info">
+                                        <h5 class="sub-title alignleft"> Call Us </h5>
+                                        <i class="fa fa-map-marker"></i>
+                                        <p> (00) 123 456 7890 </p>
+                                    </div>
+                                    <div class="dt-sc-contact-info">
+                                        <h5 class="sub-title alignleft"> Mail Us </h5>
+                                        <i class="fa fa-envelope"></i>
+                                        <a href="mailto:contact@ownmail.com"> contact@ownmail.com </a>
+                                    </div>
+                                </div>
+                                <div class="dt-sc-two-third column">
+                                    <div class="dt-sc-contact-form">
+                                    	<div id="ajax_contact_msg"></div>
+                                        <form method="post" action="php/send.php" class="dt-sc-enquiry-form" name="enqform">
+                                            <input type="text" required="" name="txtname" title="Please enter your name" placeholder="YOUR NAME">
+                                            <input type="email" required="" autocomplete="off" name="txtemail" title="Please enter your valid email_id" placeholder="YOUR EMAIL">
+                                            <textarea required="" rows="3" cols="5" name="txtmessage" title=" Please enter your message" placeholder="YOUR SUGGESTIONS HERE"></textarea>
+                                            <input type="submit" value="Send it Now" name="submit" class="submit">
+                                        </form>
+                                    </div>
+                                </div>
+							</div>
+                        </div>
+                    </footer>
+                </section> -->
+            <!--Contact Ends Here-->
+
+            <div class="dt-sc-copyrights">
+                <div class="container">
+                    <p> &copy; 2019. All Rights reserved by <a href="#"> PolyStocks </a> </p>
+                    <div class="dt-sc-social-icons">
+                        <a href="#" class="facebook"> <i class="fa fa-facebook"></i> </a>
+                        <a href="#" class="google"> <i class="fa fa-google-plus"></i> </a>
+                        <a href="#" class="twitter"> <i class="fa fa-twitter"></i> </a>
+                        <a href="#" class="dribbble"> <i class="fa fa-dribbble"></i> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Main Content Ends Here-->
+    </div>
+    </div>
+
+    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery-migrate.min.js"></script>
+    <script type="text/javascript" src="js/jquery-easing-1.3.js"></script>
+    <script type="text/javascript" src="js/jquery.scrollTo.min.js"></script>
+
+    <script type="text/javascript" src="js/jquery.parallax.min.js"></script>
+    <script type="text/javascript" src="js/toucheffects.min.js"></script>
+
+    <script type="text/javascript" src="js/jquery.sticky.min.js"></script>
+    <script type="text/javascript" src="js/jquery.nav.min.js"></script>
+
+    <script type="text/javascript" src="js/jquery.tabs.min.js"></script>
+    <script type="text/javascript" src="js/plugins.min.js"></script>
+
+    <script type="text/javascript" src="js/jquery.carouFredSel-6.2.1-packed.js"></script>
+    <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+    <script type="text/javascript" src="js/twitter/jquery.tweet.min.js"></script>
+
+    <script type="text/javascript" src="js/jquery.isotope.min.js"></script>
+    <script type="text/javascript" src="js/jquery.isotope.perfectmasonry.min.js"></script>
+    <script type="text/javascript" src="js/jquery.prettyPhoto.min.js"></script>
+
+    <script src="js/jquery.bxslider.min.js" type="text/javascript"></script>
+
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script src="js/jquery.gmap.min.js"></script>
+
+    <script type="text/javascript">
+        $('#main-menu').onePageNav({
+            currentClass: 'current_page_item',
+            filter: ':not(.external)',
+            scrollSpeed: 750,
+            scrollOffset: 73
+        });
+    </script>
+
+    <script type="text/javascript" src="js/retina.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+
+    <script type="text/javascript" src="js/custom.js"></script>

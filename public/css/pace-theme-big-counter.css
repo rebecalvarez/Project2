@@ -1,0 +1,5 @@
+.pace { -webkit-pointer-events: none; pointer-events: none; -webkit-user-select: none; -moz-user-select: none; user-select: none; }
+.pace.pace-inactive .pace-progress { display: none; }
+.pace .pace-progress { position: fixed; z-index: 9999999999; top: 0; right: 0; height: 5rem; width: 5rem; }
+.pace .pace-progress:after { display: block; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%); width: 90%; display: table-cell; 
+vertical-align: middle;	content: attr(data-progress-text); font-size: 30px; font-weight: bold; width: 100px; height: 100px; line-height: 100px; text-align:center; border-radius: 50%; }
