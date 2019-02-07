@@ -1123,3 +1123,13 @@
 		
 		-webkit-text-fill-color: #9DBF4F;
 	}
+
+	.medialinks{
+		
+		-webkit-text-fill-color: rgb(75, 75, 75);
+	}
+
+
+	.medialinks:hover {
+		color: white;
+	}
