@@ -1,8 +1,6 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
+var $search = $("#search");
 var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -64,22 +62,22 @@ var refreshExamples = function() {
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+  var images = {
+    description: $search.val().trim()
   };
+  console.log(images);
 
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
+  if (!images.description) {
+    alert("You must enter an image search description!");
     return;
   }
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
-  });
+  // API.show(images).then(function() {
+  //   refreshExamples();
+  // });
 
-  $exampleText.val("");
-  $exampleDescription.val("");
+  $("form")[0].reset();
+  $search.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
