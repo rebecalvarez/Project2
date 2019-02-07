@@ -4,14 +4,23 @@ var $submitBtn = $("#submit");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  getUnsplash: function(images) {
+    console.log(images);
     return $.ajax({
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization:
+          "Client-ID de9a63d28bf00119e0b303571beaa6b9dd734475f5040a5e349a430224ae4ebf"
       },
-      type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
+      type: "GET",
+      url: "https://api.unsplash.com/search/photos?page=1&query=" + images,
+      data: JSON.stringify(images)
+    }).then(function(data) {
+      data.results.forEach(function(element) {
+        console.log(element);
+        console.log(element.description);
+        console.log(element.urls.regular);
+      });
     });
   },
   getExamples: function() {
@@ -62,12 +71,10 @@ var refreshExamples = function() {
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
-  var images = {
-    description: $search.val().trim()
-  };
+  var images = $search.val().trim();
   console.log(images);
 
-  if (!images.description) {
+  if (!images) {
     alert("You must enter an image search description!");
     return;
   }
@@ -75,6 +82,7 @@ var handleFormSubmit = function(event) {
   // API.show(images).then(function() {
   //   refreshExamples();
   // });
+  API.getUnsplash(images);
 
   $("form")[0].reset();
   $search.val("");
