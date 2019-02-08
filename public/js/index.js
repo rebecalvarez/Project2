@@ -2,10 +2,11 @@
 var $search = $("#search");
 var $submitBtn = $("#submit");
 
+var imagesArray = [];
+
 // The API object contains methods for each kind of request we'll make
 var API = {
   getUnsplash: function(images) {
-    console.log(images);
     return $.ajax({
       headers: {
         "Content-Type": "application/json",
@@ -16,11 +17,13 @@ var API = {
       url: "https://api.unsplash.com/search/photos?page=1&query=" + images,
       data: JSON.stringify(images)
     }).then(function(data) {
-      data.results.forEach(function(element) {
-        console.log(element);
-        console.log(element.description);
-        console.log(element.urls.regular);
-      });
+      for (var i = 0; i < data.results.length; i++) {
+        var tempObj = {};
+        tempObj.description = data.results[i].description;
+        tempObj.url = data.results[i].urls.regular;
+        tempObj.width = data.results[i].width;
+        imagesArray.push(tempObj);
+      }
     });
   },
   getPixabay: function(images) {
@@ -32,10 +35,13 @@ var API = {
         "&image_type=photo",
       data: JSON.stringify(images)
     }).then(function(data) {
-      data.hits.forEach(function(element) {
-        console.log(element.largeImageURL);
-        console.log(element.tags);
-      });
+      for (var i = 0; i < data.hits.length; i++) {
+        var tempObj = {};
+        tempObj.description = data.hits[i].tags;
+        tempObj.url = data.hits[i].pageURL;
+        tempObj.width = data.hits[i].imageWidth;
+        imagesArray.push(tempObj);
+      }
     });
   },
   getExamples: function() {
@@ -87,7 +93,6 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var images = $search.val().trim();
-  console.log(images);
 
   if (!images) {
     alert("You must enter an image search description!");
@@ -99,6 +104,7 @@ var handleFormSubmit = function(event) {
   // });
   API.getUnsplash(images);
   API.getPixabay(images);
+  console.log(imagesArray);
 
   $("form")[0].reset();
   $search.val("");
