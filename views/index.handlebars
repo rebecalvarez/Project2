@@ -8,7 +8,7 @@
     </div>
 </div>
 
-<script>
+ <script>
     window.fbAsyncInit = function () {
         FB.init({
             appId: '226975514781110',
@@ -20,36 +20,41 @@
         FB.AppEvents.logPageView();
 
 
+
+        FB.getLoginStatus(function (response) {
+            statusChangeCallback(response);
+        });
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
     };
-    FB.getLoginStatus(function (response) {
-        statusChangeCallback(response);
-    });
-    (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) { return; }
-        js = d.createElement(s); js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-</script>
+</script> 
 
 
 
 <div id="fb-root"></div>
-<script>(function (d, s, id) {
+<script>
+    
+    (function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
         js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId=226975514781110&autoLogAppEvents=1';
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
-    
+
     function checkLoginState() {
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
-}
-    </script>
+        FB.getLoginStatus(function (response) {
+            statusChangeCallback(response);
+        });
+    }
+    
+</script>
 
 
 
@@ -86,7 +91,10 @@
                             <li><a href="#team">Team</a> </li>
                             <!-- <li><a href="#contact">Contact</a> </li>   -->
                             <li><a href="#">Login</a> </li>
-                            <li><div class="fb-login-button" data-size="medium" data-button-type="login_with" data-auto-logout-link="true" data-use-continue-as="true"></div></li>
+                            <li>
+                                <div class="fb-login-button" data-size="medium" data-button-type="login_with"
+                                    data-auto-logout-link="true" data-use-continue-as="true"></div>
+                            </li>
                             <li class="dt-sc-button small type2"><a href="#team">Join</a> </li>
 
                         </ul>
@@ -528,7 +536,6 @@
         </section>
         <!--Work Ends Here-->
 
-<<<<<<< HEAD
         <!--Team Starts Here-->
         <section id="team" name="team" class="content">
             <div class="dt-sc-hr-invisible"> </div>
@@ -594,73 +601,6 @@
                         </div>
                     </li>
                     <!-- <li>
-=======
-            <!--Team Starts Here-->
-            <section  name="team" class="content">
-                <div class="dt-sc-hr-invisible"> </div>
-                <div id="team" class="container">
-                    <h2 class="main-title"> Our Team <span> Developing with Passion and Creativity </span> </h2>
-                    <ul id="team-section" class="animate" data-animation="fadeIn" data-delay="100">
-                        <li class="pusher"></li>
-                        <li>
-                            <div class="team-details">
-                                <img src="./images/team/ian.jpg" alt="" />
-                                <h5>Ian Bunn<span> Back End </span> </h5>
-                                <p>
-                                    <a class="medialinks" href="https://www.linkedin.com/in/ianbunn/" class="linkedIn"> <i class="fa fa-linkedin"></i> </a>
-                                    <a class="medialinks" href="https://github.com/ianbunn" class="github"> <i class="fa fa-github"></i> </a>
-                                    <a class="medialinks" href="ianrichardbunn@gmail.com" class="email"> <i class="fa fa-envelope"></i> </a>
-                                </p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="team-details">
-                                <img src="./images/team/rebeca.jpg" alt="" />
-                                <h5>Rebeca Dodero <span> Front End </span> </h5>
-                                <p>
-                                    <a class="medialinks" href="https://www.linkedin.com/in/rebecadodero/" class="linkedIn"> <i class="fa fa-linkedin"></i> </a>
-                                    <a  class="medialinks"href="https://github.com/rebecalvarez" class="github"> <i class="fa fa-github"></i> </a>
-                                    <a class="medialinks" href="rebeca.dodero@gmail.com" class="email"> <i class="fa fa-envelope"></i> </a>
-                                </p>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="team-details">
-                                <img src="./images/team/eduardo.jpg" alt="" />
-                                <h5> Eduardo Medina <span> Back End </span> </h5>
-                                <p>
-                                    <a class="medialinks" href="https://www.linkedin.com/in/eduardo-medina-69509375/" class="linkedIn"> <i class="fa fa-linkedin"></i> </a>
-                                    <a class="medialinks" href="https://github.com/18eddymedina" class="github"> <i class="fa fa-github"></i> </a>
-                                    <a class="medialinks" href="18emedina@gmail.com" class="email"> <i class="fa fa-envelope"></i> </a>
-                                </p>
-                            </div>
-                        </li>
-                        <li class="middle-content">
-                            <div class="team-details empty-text">
-                                <h3> Team Effort </h3>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="team-details">
-                                <img src="./images/team/emma.jpg" alt="" />
-                                <h5> Emma Muniz <span> Front End </span> </h5>
-                                <p>
-                                    <a class="medialinks" href="https://www.linkedin.com/in/emma-muniz-99a70192/" class="linkedIn"> <i class="fa fa-linkedin"></i> </a>
-                                    <a class="medialinks" href="https://github.com/Elm1212" class="github"> <i class="fa fa-github"></i> </a>
-                                    <a class="medialinks" href="emmal.muniz@gmail.com" class="email"> <i class="fa fa-envelope"></i> </a>
-                                </p>
-                            </div>
-                        </li>
-                        <li class="pusher"></li>
-                        <li class="middle-content">
-                            <div class="team-details empty-text">
-                                <h3> Creativity </h3>
-                            </div>
-                        </li>
-                        <!-- <li>
->>>>>>> 53cbbbb13e64153c65c458ef6d2b6d9a7a70c131
                               <div class="team-details">
                                 <img src="http://placehold.it/270x270&text=Team+Image" alt=""/>
                                 <h5>Meg Whitman <span> Sr.Developer </span> </h5>
@@ -1089,7 +1029,6 @@
                 </section> -->
         <!--Contact Ends Here-->
 
-<<<<<<< HEAD
         <div class="dt-sc-copyrights">
             <div class="container">
                 <p> &copy; 2019. All Rights reserved by <a href="#"> PolyStocks </a> </p>
@@ -1098,17 +1037,6 @@
                     <a href="#" class="google"> <i class="fa fa-google-plus"></i> </a>
                     <a href="#" class="twitter"> <i class="fa fa-twitter"></i> </a>
                     <a href="#" class="dribbble"> <i class="fa fa-dribbble"></i> </a>
-=======
-            <div class="dt-sc-copyrights">
-                <div class="container">
-                    <p> &copy; 2019. All Rights reserved by <a class="medialinks" href="#"> PolyStocks </a> </p>
-                    {{!-- <div class="dt-sc-social-icons">
-                        <a href="#" class="facebook"> <i class="fa fa-facebook"></i> </a>
-                        <a href="#" class="google"> <i class="fa fa-google-plus"></i> </a>
-                        <a href="#" class="twitter"> <i class="fa fa-twitter"></i> </a>
-                        <a href="#" class="dribbble"> <i class="fa fa-dribbble"></i> </a>
-                    </div> --}}
->>>>>>> 53cbbbb13e64153c65c458ef6d2b6d9a7a70c131
                 </div>
             </div>
         </div>
