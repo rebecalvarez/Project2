@@ -23,6 +23,21 @@ var API = {
       });
     });
   },
+  getPixabay: function(images) {
+    return $.ajax({
+      type: "GET",
+      url:
+        "https://pixabay.com/api/?key=11535423-299e4955bd04e97354a960b00&q=" +
+        images +
+        "&image_type=photo",
+      data: JSON.stringify(images)
+    }).then(function(data) {
+      data.hits.forEach(function(element) {
+        console.log(element.largeImageURL);
+        console.log(element.tags);
+      });
+    });
+  },
   getExamples: function() {
     return $.ajax({
       url: "api/examples",
@@ -83,6 +98,7 @@ var handleFormSubmit = function(event) {
   //   refreshExamples();
   // });
   API.getUnsplash(images);
+  API.getPixabay(images);
 
   $("form")[0].reset();
   $search.val("");
