@@ -1,24 +1,24 @@
 require("dotenv").config();
 var express = require("express");
-var passport = require('passport');
-var session = require('express-session');
-var bodyParser = require('body-parser');
+var passport = require("passport");
+var session = require("express-session");
+var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
-var Strategy = require('passport-facebook').Strategy;
+var Strategy = require("passport-facebook").Strategy;
 
 var db = require("./models");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
 
-
-var FACEBOOK_ID = '226975514781110';
-var FACEBOOK_SECRET = '6c5be79b91ec1d32af60d9abf23c3083'
+var FACEBOOK_ID = "226975514781110";
+var FACEBOOK_SECRET = "6c5be79b91ec1d32af60d9abf23c3083";
 
 var fbOptions = {
   clientID: FACEBOOK_ID,
   clientSecret: FACEBOOK_SECRET,
   callbackURL: "http://localhost:3000/auth/facebook/callback",
+
   profileFields: ['email']
 }
 
@@ -30,9 +30,11 @@ var fbCallback = function (accessToken, refreshToken, profile, cb) {
       return cb(err, user);
     };  //return cb(null, profile);
     a();
+
 };
 
 passport.use(new Strategy(fbOptions, fbCallback));
+
 
 
 
@@ -71,25 +73,14 @@ app.get('/auth/facebook',
 //   });
 // }
 
-passport.serializeUser(function (user, cb) {
+
+passport.serializeUser(function(user, cb) {
   cb(null, user);
 });
 
-passport.deserializeUser(function (obj, cb) {
+passport.deserializeUser(function(obj, cb) {
   cb(null, obj);
 });
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
@@ -118,8 +109,8 @@ if (process.env.NODE_ENV === "test") {
 }
 
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function () {
-  app.listen(PORT, function () {
+db.sequelize.sync(syncOptions).then(function() {
+  app.listen(PORT, function() {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
       PORT,
