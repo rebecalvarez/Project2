@@ -6,7 +6,7 @@ var imagesArray = [];
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  getUnsplash: function(images) {
+  getUnsplash: function (images) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json",
@@ -16,7 +16,7 @@ var API = {
       type: "GET",
       url: "https://api.unsplash.com/search/photos?page=1&query=" + images,
       data: JSON.stringify(images)
-    }).then(function(data) {
+    }).then(function (data) {
       for (var i = 0; i < data.results.length; i++) {
         var tempObj = {};
         tempObj.description = data.results[i].description;
@@ -26,7 +26,34 @@ var API = {
       }
     });
   },
-  getPixabay: function(images) {
+  getPexels: function (images) {
+    return $.ajax({
+      headers: {
+        "Content-Type": "application/json",
+        Authorization:
+          "563492ad6f91700001000001964c556e478d4420be7dafdf01f3663a",
+        "Access-Control-Allow-Origin":
+          "https://cors-anywhere.herokuapp.com/http://127.0.0.1:3000",
+        "Access-Control-Allow-Credentials": true
+      },
+      type: "GET",
+      url:
+        "https://api.pexels.com/v1/search?query=" +
+        images +
+        "&per_page=15&page=1",
+      data: JSON.stringify(images)
+    }).then(function (data) {
+      console.log(data);
+      // for (var i = 0; i < data.results.length; i++) {
+      //   var tempObj = {};
+      //   tempObj.description = data.results[i].description;
+      //   tempObj.url = data.results[i].urls.regular;
+      //   tempObj.width = data.results[i].width;
+      //   imagesArray.push(tempObj);
+      // }
+    });
+  },
+  getPixabay: function (images) {
     return $.ajax({
       type: "GET",
       url:
@@ -34,7 +61,7 @@ var API = {
         images +
         "&image_type=photo",
       data: JSON.stringify(images)
-    }).then(function(data) {
+    }).then(function (data) {
       for (var i = 0; i < data.hits.length; i++) {
         var tempObj = {};
         tempObj.description = data.hits[i].tags;
@@ -44,13 +71,13 @@ var API = {
       }
     });
   },
-  getExamples: function() {
+  getExamples: function () {
     return $.ajax({
       url: "api/examples",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  deleteExample: function (id) {
     return $.ajax({
       url: "api/examples/" + id,
       type: "DELETE"
@@ -59,9 +86,9 @@ var API = {
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
+var refreshExamples = function () {
+  API.getExamples().then(function (data) {
+    var $examples = data.map(function (example) {
       var $a = $("<a>")
         .text(example.text)
         .attr("href", "/example/" + example.id);
@@ -89,7 +116,7 @@ var refreshExamples = function() {
 
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
+var handleFormSubmit = function (event) {
   event.preventDefault();
 
   var images = $search.val().trim();
@@ -98,12 +125,14 @@ var handleFormSubmit = function(event) {
     alert("You must enter an image search description!");
     return;
   }
+  imagesArray = [];
 
   // API.show(images).then(function() {
   //   refreshExamples();
   // });
   API.getUnsplash(images);
   API.getPixabay(images);
+  API.getPexels(images);
   console.log(imagesArray);
 
   $("form")[0].reset();
@@ -112,12 +141,12 @@ var handleFormSubmit = function(event) {
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
+var handleDeleteBtnClick = function () {
   var idToDelete = $(this)
     .parent()
     .attr("data-id");
 
-  API.deleteExample(idToDelete).then(function() {
+  API.deleteExample(idToDelete).then(function () {
     refreshExamples();
   });
 };
