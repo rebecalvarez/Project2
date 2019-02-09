@@ -6,7 +6,7 @@ var imagesArray = [];
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  getUnsplash: function (images) {
+  getUnsplash: function(images) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json",

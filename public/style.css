@@ -366,6 +366,7 @@
 		
 		.type-1 #header-sticky-wrapper.sticky-wrapper { height:auto !important; }	
 		.type-1 #header-sticky-wrapper.sticky-wrapper #header { overflow: hidden; width: 100%; position: fixed; }
+		.type-1 #header-sticky-wrapper.sticky-wrapper .menu-user { overflow: hidden; width: 100%; position: fixed; background-color: #252525;}
 		
 		.type-1 #header-sticky-wrapper.sticky-wrapper.is-sticky #header { background: #252525; }
 		.type-1 #header-sticky-wrapper.sticky-wrapper.is-sticky #header #menu-container { padding: 10px 0px; }
@@ -1132,4 +1133,8 @@
 
 	.medialinks:hover {
 		color: white;
+	}
+
+	.menu-user{
+		background-color: rgb(29, 29, 29);
 	}
