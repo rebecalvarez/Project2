@@ -1,0 +1,21 @@
+
+.folder {
+    color: goldenrod;
+    size: 50px;
+    width: 50%;
+    top: 50%;
+    margin: 0 auto;
+
+}
+
+.categories {
+    margin: 0 auto;
+}
+
+.landscapes {
+    size: 60px;
+    width: 50%;
+    top: 50%;
+    margin: 0 auto;
+
+}
