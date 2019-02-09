@@ -11,43 +11,43 @@ var db = require("./models");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
-var FACEBOOK_ID = "226975514781110";
-var FACEBOOK_SECRET = "6c5be79b91ec1d32af60d9abf23c3083";
+// var FACEBOOK_ID = "226975514781110";
+// var FACEBOOK_SECRET = "6c5be79b91ec1d32af60d9abf23c3083";
 
-var fbOptions = {
-  clientID: FACEBOOK_ID,
-  clientSecret: FACEBOOK_SECRET,
-  callbackURL: "http://localhost:3000/auth/facebook/callback",
+// var fbOptions = {
+//   clientID: FACEBOOK_ID,
+//   clientSecret: FACEBOOK_SECRET,
+//   callbackURL: "http://localhost:3000/auth/facebook/callback",
 
-  profileFields: ['email']
-}
+//   profileFields: ['email']
+// }
 
-var fbCallback = function (accessToken, refreshToken, profile, cb) {
+// var fbCallback = function (accessToken, refreshToken, profile, cb) {
 
-  console.log(profile,cb)
- var a=function (err, user) {
-   console.log();
-      return cb(err, user);
-    };  //return cb(null, profile);
-    a();
+//   console.log(profile,cb)
+//  var a=function (err, user) {
+//    console.log();
+//       return cb(err, user);
+//     };  //return cb(null, profile);
+//     a();
 
-};
+// };
 
-passport.use(new Strategy(fbOptions, fbCallback));
-
-
+// passport.use(new Strategy(fbOptions, fbCallback));
 
 
-app.get('/auth/facebook',
-  passport.authenticate('facebook'));
 
 
-  app.get('/auth/facebook/callback',
-  passport.authenticate('facebook', { failureRedirect: '/' }),
-  function(req, res) {
-    // Successful authentication, redirect home.
-    res.redirect('/');
-  });
+// app.get('/auth/facebook',
+//   passport.authenticate('facebook'));
+
+
+//   app.get('/auth/facebook/callback',
+//   passport.authenticate('facebook', { failureRedirect: '/' }),
+//   function(req, res) {
+//     // Successful authentication, redirect home.
+//     res.redirect('/');
+//   });
 // app.route('/signupwithfacebook')
 //   .get(passport.authenticate('facebook', { scope: ['email'] }));
 
@@ -70,13 +70,13 @@ app.get('/auth/facebook',
 // }
 
 
-passport.serializeUser(function(user, cb) {
-  cb(null, user);
-});
+// passport.serializeUser(function(user, cb) {
+//   cb(null, user);
+// });
 
-passport.deserializeUser(function(obj, cb) {
-  cb(null, obj);
-});
+// passport.deserializeUser(function(obj, cb) {
+//   cb(null, obj);
+// });
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
