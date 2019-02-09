@@ -18,28 +18,61 @@ var fbOptions = {
   clientID: FACEBOOK_ID,
   clientSecret: FACEBOOK_SECRET,
   callbackURL: "http://localhost:3000/auth/facebook/callback",
-  profileField: ["email"]
-};
 
-var fbCallback = function(accessToken, refreshToken, profile, cb) {
-  console.log(profile);
-  return cb(null, profile);
+  profileFields: ['email']
+}
+
+var fbCallback = function (accessToken, refreshToken, profile, cb) {
+
+  console.log(profile,cb)
+ var a=function (err, user) {
+   console.log();
+      return cb(err, user);
+    };  //return cb(null, profile);
+    a();
+
 };
 
 passport.use(new Strategy(fbOptions, fbCallback));
 
-app.route("/signupwithfacebook").get(passport.authenticate("facebook"));
+
+
+
+app.get('/auth/facebook',
+  passport.authenticate('facebook'));
+
+
+
+  app.get('/auth/facebook/callback',
+  passport.authenticate('facebook', {scope:['email']}, function(err,user,info){
+
+  }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+  });
+
+// app.route('/signupwithfacebook')
+//   .get(passport.authenticate('facebook', { scope: ['email'] }));
+
+// app.get('/callback', function(req, res,err,user,info) {
+//   console.log(err,user,info);
+//   res.redirect('/');
+//  });
+
 
 //app.route('/').get(passport.authenticate('facebook',{scope:['email']}));
 
-app.route("/auth/facebook/callback").get(
-  passport.authenticate("facebook", function(err, user, info) {
-    console.log(err, user, info);
-    if (err) {
-      resizeBy.send("success");
-    }
-  })
-);
+// {app.route('/callback')
+//   .get(passport.authenticate('facebook', function (res, err, user, info) {
+//     console.log(err, user, info)
+
+//   }
+//   )).get('/', function(req,res){
+//     res.redirect('/');
+//   });
+// }
+
 
 passport.serializeUser(function(user, cb) {
   cb(null, user);
