@@ -19,7 +19,6 @@ var API = {
     }).then(function (data) {
       for (var i = 0; i < data.results.length; i++) {
         var tempObj = {};
-        tempObj.description = data.results[i].description;
         tempObj.url = data.results[i].urls.regular;
         tempObj.width = data.results[i].width;
         imagesArray.push(tempObj);
@@ -42,15 +41,14 @@ var API = {
         images +
         "&per_page=15&page=1",
       data: JSON.stringify(images)
-    }).then(function (data) {
-      console.log(data);
-      // for (var i = 0; i < data.results.length; i++) {
-      //   var tempObj = {};
-      //   tempObj.description = data.results[i].description;
-      //   tempObj.url = data.results[i].urls.regular;
-      //   tempObj.width = data.results[i].width;
-      //   imagesArray.push(tempObj);
-      // }
+    }).then(function(data) {
+      // console.log(data);
+      for (var i = 0; i < data.photos.length; i++) {
+        var tempObj = {};
+        tempObj.url = data.photos[i].url;
+        tempObj.width = data.photos[i].width;
+        imagesArray.push(tempObj);
+      }
     });
   },
   getPixabay: function (images) {
@@ -64,7 +62,6 @@ var API = {
     }).then(function (data) {
       for (var i = 0; i < data.hits.length; i++) {
         var tempObj = {};
-        tempObj.description = data.hits[i].tags;
         tempObj.url = data.hits[i].pageURL;
         tempObj.width = data.hits[i].imageWidth;
         imagesArray.push(tempObj);
