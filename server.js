@@ -42,16 +42,12 @@ app.get('/auth/facebook',
   passport.authenticate('facebook'));
 
 
-
   app.get('/auth/facebook/callback',
-  passport.authenticate('facebook', {scope:['email']}, function(err,user,info){
-
-  }),
+  passport.authenticate('facebook', { failureRedirect: '/' }),
   function(req, res) {
     // Successful authentication, redirect home.
     res.redirect('/');
   });
-
 // app.route('/signupwithfacebook')
 //   .get(passport.authenticate('facebook', { scope: ['email'] }));
 
