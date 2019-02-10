@@ -59,7 +59,7 @@ var API = {
         images +
         "&per_page=15&page=1",
       data: JSON.stringify(images)
-    }).then(function (data) {
+    }).then(function(data) {
       // console.log(data);
       for (var i = 0; i < data.photos.length; i++) {
         var tempObj = {};
@@ -83,11 +83,11 @@ var API = {
     });
   },
 
-  checkUser: function (email) {
+  checkUser: function(email) {
     return $.ajax({
       url: "api/examples/" + email,
       type: "GET"
-    }).then(function (json) {
+    }).then(function(json) {
       if (json.length > 0) {
         exists = true;
       }
@@ -97,11 +97,11 @@ var API = {
       }
     });
   },
-  findUser: function (user) {
+  findUser: function(user) {
     return $.ajax({
       url: "api/examples/" + user.email,
       type: "GET"
-    }).then(function (json) {
+    }).then(function(json) {
 
       //  require("bcrypt-nodejs");
       if (json.length == 0) {
@@ -299,7 +299,7 @@ $("#createAccount").click(function() {
 });
 
 
-$("#createAccount").click(function () {
+$("#createAccount").click(function() {
   var us = {
     email: "",
     username: "",
@@ -313,7 +313,7 @@ $("#createAccount").click(function () {
 
   var API2 = {
     exist: false,
-    saveExample: function (example) {
+    saveExample: function(example) {
       return $.ajax({
         headers: {
           "Content-Type": "application/json"
@@ -323,11 +323,11 @@ $("#createAccount").click(function () {
         data: JSON.stringify(example)
       });
     },
-    getUser: function (us) {
+    getUser: function(us) {
       return $.ajax({
         url: "api/examples/" + us.email,
         type: "GET"
-      }).then(function (json) {
+      }).then(function(json) {
         // alert(json);
         if (json.length > 0) {
           alert("user already exists");
@@ -343,7 +343,7 @@ $("#createAccount").click(function () {
 
 
 
-$("#loggingIn").click(function () {
+$("#loggingIn").click(function() {
   var user2 = {
     email: "",
     password: ""
@@ -355,4 +355,4 @@ $("#loggingIn").click(function () {
 
 // ADD EVENT LISTENERS TO THE SUBMIT AND LIKE BUTTONS
 $submitBtn.on("click", handleFormSubmit);
-$imagesSection.on("click", ".like", handleLike);er
+$imagesSection.on("click", ".like", handleLike);
