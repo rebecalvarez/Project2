@@ -1,20 +1,24 @@
 var db = require("../models");
 module.exports = function(app) {
   // Get all examples
-  app.get("/api/user", function(req, res) {
-    db.Example.findAll({}).then(function(user) {
-      res.json(user);
+  app.get("/api/examples", function(req, res) {
+    db.Example.findAll({}).then(function(dbExamples) {
+      res.json(dbExamples);
       // console.log(res.json(dbExamples));
     });
   });
 
-  // app.get("/api/user/:email", function(req, res) {
-  //   db.Example.findAll({where :{email:req.params.email}}).then(function(user) {
-  //     res.json(user);
+  app.get("/api/examples/:email", function(req, res) {
+    db.Example.findAll({ where: { email: req.params.email } }).then(function(
+      dbExamples
+    ) {
+      res.json(dbExamples);
+    });
+  });
   // console.log(res.json(dbExamples));
   // CREATE A NEW ACCOUNT
-  app.post("/api/user", function(req, res) {
-    db.Users.create(req.body).then(function(user) {
+  app.post("/api/examples", function(req, res) {
+    db.Example.create(req.body).then(function(user) {
       res.json(user);
     });
   });
