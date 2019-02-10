@@ -11,7 +11,9 @@ email:     	info@themepunch.com
 website:   	http://www.themepunch.com
 -----------------------------------------------------------------------------*/
 
-
+#imagesSection {
+	float: right !important;
+}
 
 /*************************
 	-	CAPTIONS	-
