@@ -4,6 +4,10 @@ var $submitBtn = $("#submit");
 
 var imagesArray = [];
 
+
+
+
+
 // The API object contains methods for each kind of request we'll make
 var API = {
   getUnsplash: function(images) {
@@ -78,6 +82,16 @@ var API = {
     return $.ajax({
       url: "api/examples/" + id,
       type: "DELETE"
+    });
+  },
+  saveExample: function(example) {
+    return $.ajax({
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "POST",
+      url: "api/examples",
+      data: JSON.stringify(example)
     });
   }
 };
@@ -174,3 +188,20 @@ $(function() {
     }
   });
 });
+
+
+
+
+$("#createAccount").click(function(){
+var us={
+  email:"",
+  username:"",
+  password:""
+}
+  us.email=$("#signup-email").val();
+us.username=$("#signup-username").val();
+us.password=$("#signup-password").val();
+
+
+API.saveExample(us);
+})

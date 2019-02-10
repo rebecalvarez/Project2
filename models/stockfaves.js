@@ -1,4 +1,4 @@
-var User = require("./user.js");
+var Example = require("./user.js");
 module.exports = function(sequelize, DataTypes) {
   var StockFaves = sequelize.define("StockFaves", {
     name: DataTypes.STRING,
@@ -6,8 +6,8 @@ module.exports = function(sequelize, DataTypes) {
     category: DataTypes.TEXT
   });
 
-  User.associate = function(models) {
-    User.hasMany(models.StockFaves, {
+  Example.associate = function(models) {
+    Example.hasMany(models.StockFaves, {
       onDelete: "cascade"
     });
   };
