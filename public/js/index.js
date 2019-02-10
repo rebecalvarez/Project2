@@ -16,7 +16,7 @@ var API = {
       type: "GET",
       url: "https://api.unsplash.com/search/photos?page=1&query=" + images,
       data: JSON.stringify(images)
-    }).then(function (data) {
+    }).then(function(data) {
       for (var i = 0; i < data.results.length; i++) {
         var tempObj = {};
         tempObj.url = data.results[i].urls.regular;
@@ -25,7 +25,24 @@ var API = {
       }
     });
   },
-  getPexels: function (images) {
+  getPixabay: function(images) {
+    return $.ajax({
+      type: "GET",
+      url:
+        "https://pixabay.com/api/?key=11535423-299e4955bd04e97354a960b00&q=" +
+        images +
+        "&image_type=photo",
+      data: JSON.stringify(images)
+    }).then(function(data) {
+      for (var i = 0; i < data.hits.length; i++) {
+        var tempObj = {};
+        tempObj.url = data.hits[i].largeImageURL;
+        tempObj.width = data.hits[i].imageWidth;
+        imagesArray.push(tempObj);
+      }
+    });
+  },
+  getPexels: function(images) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json",
@@ -45,36 +62,88 @@ var API = {
       // console.log(data);
       for (var i = 0; i < data.photos.length; i++) {
         var tempObj = {};
-        tempObj.url = data.photos[i].url;
+        tempObj.url = data.photos[i].src.original;
         tempObj.width = data.photos[i].width;
         imagesArray.push(tempObj);
       }
+      API.clearImagesDiv();
+      API.showImages(imagesArray);
+      API.scrollToImages();
     });
   },
-  getPixabay: function (images) {
-    return $.ajax({
-      type: "GET",
-      url:
-        "https://pixabay.com/api/?key=11535423-299e4955bd04e97354a960b00&q=" +
-        images +
-        "&image_type=photo",
-      data: JSON.stringify(images)
-    }).then(function (data) {
-      for (var i = 0; i < data.hits.length; i++) {
-        var tempObj = {};
-        tempObj.url = data.hits[i].pageURL;
-        tempObj.width = data.hits[i].imageWidth;
-        imagesArray.push(tempObj);
-      }
+  showImages: function(imagesArray) {
+    for (var i = 0; i < imagesArray.length; i++) {
+      console.log(imagesArray[i].url);
+      console.log(imagesArray[i].width);
+
+      // create div for figure
+      var imageDiv = $("<div>").addClass("dt-sc-portfolio");
+      imageDiv.addClass("width1");
+
+      // create figure
+      var imageFigure = $("<figure>");
+      imageDiv.append(imageFigure);
+
+      // create image
+      var image = $("<img>").attr("src", imagesArray[i].url);
+      imageFigure.append(image);
+
+      // create fig caption
+      var figCaption = $("<figcaption>");
+      imageFigure.append(figCaption);
+
+      // create div, class fig-overlay
+      var figOverlay = $("<div>");
+      figOverlay.addClass("fig-overlay");
+      figCaption.append(figOverlay);
+
+      // create div, class external-icons
+      var icons = $("<div>").addClass("external-icons");
+      figOverlay.append(icons);
+
+      // create a, class zoom, href, icon class fa-fa-search-plus
+      var zoom = $("<a>").attr("href", imagesArray[i].url);
+      zoom.attr("data-gal", "prettyPhoto[gallery]");
+      zoom.attr("target", "_blank");
+      zoom.addClass("zoom");
+      var zoomIcon = $("<span>").addClass("fa fa-search-plus");
+      zoom.append(zoomIcon);
+      icons.append(zoom);
+
+      // create a, class like, href, icon class fa-fa-heart
+      var like = $("<a>").attr("href", "#");
+      like.addClass("like");
+      var likeIcon = $("<span>").addClass("fa fa-heart");
+      like.append(likeIcon);
+      icons.append(like);
+
+      // create a, class view, href, icon class fa fa-download
+      var download = $("<a>").attr("href", "#");
+      download.addClass("view");
+      var downloadIcon = $("<span>").addClass("fa fa-download");
+      download.append(downloadIcon);
+      icons.append(download);
+
+      $("#imagesSection").append(imageDiv);
+    }
+  },
+  clearImagesDiv: function() {
+    $("#imagesSection").text("");
+  },
+  scrollToImages: function() {
+    window.scrollBy({
+      top: 700,
+      left: 0,
+      behavior: "smooth"
     });
   },
-  getExamples: function () {
+  getExamples: function() {
     return $.ajax({
       url: "api/examples",
       type: "GET"
     });
   },
-  deleteExample: function (id) {
+  deleteExample: function(id) {
     return $.ajax({
       url: "api/examples/" + id,
       type: "DELETE"
@@ -83,9 +152,9 @@ var API = {
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function () {
-  API.getExamples().then(function (data) {
-    var $examples = data.map(function (example) {
+var refreshExamples = function() {
+  API.getExamples().then(function(data) {
+    var $examples = data.map(function(example) {
       var $a = $("<a>")
         .text(example.text)
         .attr("href", "/example/" + example.id);
@@ -113,7 +182,7 @@ var refreshExamples = function () {
 
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
-var handleFormSubmit = function (event) {
+var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var images = $search.val().trim();
@@ -123,6 +192,7 @@ var handleFormSubmit = function (event) {
     return;
   }
   imagesArray = [];
+  API.clearImagesDiv();
 
   // API.show(images).then(function() {
   //   refreshExamples();
@@ -130,7 +200,6 @@ var handleFormSubmit = function (event) {
   API.getUnsplash(images);
   API.getPixabay(images);
   API.getPexels(images);
-  console.log(imagesArray);
 
   $("form")[0].reset();
   $search.val("");
@@ -138,12 +207,12 @@ var handleFormSubmit = function (event) {
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function () {
+var handleDeleteBtnClick = function() {
   var idToDelete = $(this)
     .parent()
     .attr("data-id");
 
-  API.deleteExample(idToDelete).then(function () {
+  API.deleteExample(idToDelete).then(function() {
     refreshExamples();
   });
 };
