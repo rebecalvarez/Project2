@@ -1,5 +1,6 @@
-// Get references to page elements
+// GET REFERENCES TO PAGE ELEMENTS
 var $search = $("#search");
+var $imagesSection = $("#imagesSection");
 var $submitBtn = $("#submit");
 
 var imagesArray = [];
@@ -16,7 +17,7 @@ var API = {
       type: "GET",
       url: "https://api.unsplash.com/search/photos?page=1&query=" + images,
       data: JSON.stringify(images)
-    }).then(function (data) {
+    }).then(function(data) {
       for (var i = 0; i < data.results.length; i++) {
         var tempObj = {};
         tempObj.url = data.results[i].urls.regular;
@@ -25,7 +26,24 @@ var API = {
       }
     });
   },
-  getPexels: function (images) {
+  getPixabay: function(images) {
+    return $.ajax({
+      type: "GET",
+      url:
+        "https://pixabay.com/api/?key=11535423-299e4955bd04e97354a960b00&q=" +
+        images +
+        "&image_type=photo",
+      data: JSON.stringify(images)
+    }).then(function(data) {
+      for (var i = 0; i < data.hits.length; i++) {
+        var tempObj = {};
+        tempObj.url = data.hits[i].largeImageURL;
+        tempObj.width = data.hits[i].imageWidth;
+        imagesArray.push(tempObj);
+      }
+    });
+  },
+  getPexels: function(images) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json",
@@ -45,119 +63,210 @@ var API = {
       // console.log(data);
       for (var i = 0; i < data.photos.length; i++) {
         var tempObj = {};
-        tempObj.url = data.photos[i].url;
+        tempObj.url = data.photos[i].src.original;
         tempObj.width = data.photos[i].width;
         imagesArray.push(tempObj);
       }
+      clearImagesDiv();
+      showImages(imagesArray);
+      scrollToImages();
     });
   },
-  getPixabay: function (images) {
+  saveStockFave: function(record) {
     return $.ajax({
-      type: "GET",
-      url:
-        "https://pixabay.com/api/?key=11535423-299e4955bd04e97354a960b00&q=" +
-        images +
-        "&image_type=photo",
-      data: JSON.stringify(images)
-    }).then(function (data) {
-      for (var i = 0; i < data.hits.length; i++) {
-        var tempObj = {};
-        tempObj.url = data.hits[i].pageURL;
-        tempObj.width = data.hits[i].imageWidth;
-        imagesArray.push(tempObj);
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "POST",
+      url: "api/stockfaves",
+      data: JSON.stringify(record)
+    });
+  },
+
+  checkUser: function(email) {
+    return $.ajax({
+      url: "api/examples/" + email,
+      type: "GET"
+    }).then(function(json) {
+      if (json.length > 0) {
+        exists = true;
+      }
+
+      else {
+        exists = false;
       }
     });
   },
-  getExamples: function () {
+  findUser: function(user) {
     return $.ajax({
-      url: "api/examples",
+      url: "api/examples/" + user.email,
       type: "GET"
-    });
+    }).then(function(json) {
+
+      //  require("bcrypt-nodejs");
+      if (json.length == 0) {
+        //
+        // User doesnt Exist
+        //
+        alert("No matching account with that email");
+      }
+      else {
+        if (user.password == json[0].password) {
+//
+//log in
+//
+alert("Logged in");
+        }
+        else{
+          alert("Incorrect Password");
+        }
+
+
+      }
+
+
+    })
   },
-  deleteExample: function (id) {
+  saveUser: function(user) {
     return $.ajax({
-      url: "api/examples/" + id,
-      type: "DELETE"
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "POST",
+      url: "api/user",
+      data: JSON.stringify(user)
     });
   }
 };
 
-// refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function () {
-  API.getExamples().then(function (data) {
-    var $examples = data.map(function (example) {
-      var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+// SHOW IMAGES AFTER EVERY SEARCH
+var showImages = function(imagesArray) {
+  for (var i = 0; i < imagesArray.length; i++) {
+    console.log(imagesArray[i].url);
+    console.log(imagesArray[i].width);
 
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": example.id
-        })
-        .append($a);
+    // create div for figure
+    var imageDiv = $("<div>").addClass("dt-sc-portfolio");
+    imageDiv.addClass("width1");
 
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
+    // create figure
+    var imageFigure = $("<figure>");
+    imageDiv.append(imageFigure);
 
-      $li.append($button);
+    // create image
+    var image = $("<img>").attr("src", imagesArray[i].url);
+    imageFigure.append(image);
 
-      return $li;
-    });
+    // create fig caption
+    var figCaption = $("<figcaption>");
+    imageFigure.append(figCaption);
 
-    $exampleList.empty();
-    $exampleList.append($examples);
+    // create div, class fig-overlay
+    var figOverlay = $("<div>");
+    figOverlay.addClass("fig-overlay");
+    figCaption.append(figOverlay);
+
+    // create div, class external-icons
+    var icons = $("<div>").addClass("external-icons");
+    figOverlay.append(icons);
+
+    // create a, class zoom, href, icon class fa-fa-search-plus
+    var zoom = $("<a>").attr("href", imagesArray[i].url);
+    zoom.attr("data-gal", "prettyPhoto[gallery]");
+    zoom.attr("target", "_blank");
+    zoom.addClass("zoom");
+    var zoomIcon = $("<span>").addClass("fa fa-search-plus");
+    zoom.append(zoomIcon);
+    icons.append(zoom);
+
+    // create a, class like, href, icon class fa-fa-heart
+    var like = $("<a>").attr("href", "/api/examples/");
+    var like = $("<a>").attr("data", imagesArray[i].url);
+    like.addClass("like");
+    var likeIcon = $("<span>").addClass("fa fa-heart");
+    like.append(likeIcon);
+    icons.append(like);
+
+    // create a, class view, href, icon class fa fa-download
+    var download = $("<a>").attr("href", "#");
+    download.addClass("view");
+    var downloadIcon = $("<span>").addClass("fa fa-download");
+    download.append(downloadIcon);
+    icons.append(download);
+
+    $("#imagesSection").append(imageDiv);
+  }
+};
+
+// SCROLL TO IMAGES AFTER SEARCH IS DONE
+var scrollToImages = function() {
+  window.scrollBy({
+    top: 700,
+    left: 0,
+    behavior: "smooth"
   });
 };
 
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
-var handleFormSubmit = function (event) {
+// CLEAR IMAGES DIV AFTER NEW SEARCH
+var clearImagesDiv = function() {
+  $("#imagesSection").text("");
+};
+
+// HANDLEFORMSUBMIT IS CALLED WHENEVER USER SEARCHES A TERM
+var handleFormSubmit = function(event) {
   event.preventDefault();
 
+  // TERM INPUT FOR IMAGE SEARCH TERM
   var images = $search.val().trim();
 
+  // VALIDATION TO AVOID EMPTY SEARCHES
   if (!images) {
     alert("You must enter an image search description!");
     return;
   }
+
+  // SETS THE EMPTY ARRAY THAT WILL HOLD OUR IMAGE OBJECTS
   imagesArray = [];
 
-  // API.show(images).then(function() {
-  //   refreshExamples();
-  // });
+  // EVERY TIME THERE IS A NEW SEARCH, IT CLEARS THE IMAGES CONTAINER
+  clearImagesDiv();
+
+  // CALLS IMAGE APIS WITH SEARCH INPUT
   API.getUnsplash(images);
   API.getPixabay(images);
   API.getPexels(images);
-  console.log(imagesArray);
 
+  // CLEARS THE INPUT FORM FOR UX
   $("form")[0].reset();
+
+  // SETS THE IMAGE SEARCH TERM TO BLANK TO ENABLE VALIDATION
   $search.val("");
 };
 
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function () {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
+// [PENDING USER ID] HANDLE LIKE BUTTON ACTION TO SAVE STOCK FAVE
+var handleLike = function(event) {
+  event.preventDefault();
 
-  API.deleteExample(idToDelete).then(function () {
-    refreshExamples();
-  });
+  // [PENDING] VALIDATE USER ID LOGGED IN
+
+  // LIKE BUTTON CLICKED AND SAVING URL TO STOCKFAVE
+  var stockFave = {
+    url: ""
+  };
+  stockFave.url = $(this).attr("data");
+
+  // SEND URL OBJECT TO STOCKFAVES TABLE
+  API.saveStockFave(stockFave);
+
+  // [PENDING] MAKE SURE IT'S TIED TO USER ID
 };
 
-// Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
-//$exampleList.on("click", ".delete", handleDeleteBtnClick);
-
-//Chrome anchor link bug fix
+//CHROME ANCHOR LINK BUG FIX
 $(function() {
   $("a[href*='#']:not([href='#'])").click(function() {
     if (
       location.pathname.replace(/^\//, "") ===
-        this.pathname.replace(/^\//, "") &&
+      this.pathname.replace(/^\//, "") &&
       location.hostname === this.hostname
     ) {
       var target = $(this.hash);
@@ -174,3 +283,76 @@ $(function() {
     }
   });
 });
+
+// CREATE ACCOUNT BY SIGN UP
+$("#createAccount").click(function() {
+  var us = {
+    email: "",
+    username: "",
+    password: ""
+  };
+  us.email = $("#signup-email").val();
+  us.username = $("#signup-username").val();
+  us.password = $("#signup-password").val();
+
+  API.saveUser(us);
+});
+
+
+$("#createAccount").click(function() {
+  var us = {
+    email: "",
+    username: "",
+    password: ""
+  }
+  us.email = $("#signup-email").val();
+  us.username = $("#signup-username").val();
+  us.password = $("#signup-password").val();
+
+  //check if user exist
+
+  var API2 = {
+    exist: false,
+    saveExample: function(example) {
+      return $.ajax({
+        headers: {
+          "Content-Type": "application/json"
+        },
+        type: "POST",
+        url: "api/examples",
+        data: JSON.stringify(example)
+      });
+    },
+    getUser: function(us) {
+      return $.ajax({
+        url: "api/examples/" + us.email,
+        type: "GET"
+      }).then(function(json) {
+        // alert(json);
+        if (json.length > 0) {
+          alert("user already exists");
+        }
+        else {
+          API2.saveExample(us);
+        }
+      });
+    }
+  }
+  API2.getUser(us);
+})
+
+
+
+$("#loggingIn").click(function() {
+  var user2 = {
+    email: "",
+    password: ""
+  }
+  user2.email = $("#signin-email").val();
+  user2.password = $("#signin-password").val();
+  API.findUser(user2);
+})
+
+// ADD EVENT LISTENERS TO THE SUBMIT AND LIKE BUTTONS
+$submitBtn.on("click", handleFormSubmit);
+$imagesSection.on("click", ".like", handleLike);

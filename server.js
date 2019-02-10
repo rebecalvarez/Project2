@@ -5,30 +5,19 @@ var session = require("express-session");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 var Strategy = require("passport-facebook").Strategy;
-
+var bcrypt=require("bcryptjs");
+var b=require("bcrypt-nodejs")
 var db = require("./models");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
 
-// var FACEBOOK_ID = "226975514781110";
-// var FACEBOOK_SECRET = "6c5be79b91ec1d32af60d9abf23c3083";
 
-// var fbOptions = {
-//   clientID: FACEBOOK_ID,
-//   clientSecret: FACEBOOK_SECRET,
-//   callbackURL: "http://localhost:3000/auth/facebook/callback",
 
-//   profileFields: ['email']
-// }
 
-// var fbCallback = function (accessToken, refreshToken, profile, cb) {
 
-//   console.log(profile,cb)
-//  var a=function (err, user) {
-//    console.log();
-//       return cb(err, user);
-//     };  //return cb(null, profile);
+
+
 //     a();
 
 // };
