@@ -1,12 +1,9 @@
-// Get references to page elements
+// GET REFERENCES TO PAGE ELEMENTS
 var $search = $("#search");
+var $imagesSection = $("#imagesSection");
 var $submitBtn = $("#submit");
 
 var imagesArray = [];
-
-
-
-
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -70,172 +67,156 @@ var API = {
         tempObj.width = data.photos[i].width;
         imagesArray.push(tempObj);
       }
-      API.clearImagesDiv();
-      API.showImages(imagesArray);
-      API.scrollToImages();
+      clearImagesDiv();
+      showImages(imagesArray);
+      scrollToImages();
     });
   },
-  showImages: function(imagesArray) {
-    for (var i = 0; i < imagesArray.length; i++) {
-      console.log(imagesArray[i].url);
-      console.log(imagesArray[i].width);
-
-      // create div for figure
-      var imageDiv = $("<div>").addClass("dt-sc-portfolio");
-      imageDiv.addClass("width1");
-
-      // create figure
-      var imageFigure = $("<figure>");
-      imageDiv.append(imageFigure);
-
-      // create image
-      var image = $("<img>").attr("src", imagesArray[i].url);
-      imageFigure.append(image);
-
-      // create fig caption
-      var figCaption = $("<figcaption>");
-      imageFigure.append(figCaption);
-
-      // create div, class fig-overlay
-      var figOverlay = $("<div>");
-      figOverlay.addClass("fig-overlay");
-      figCaption.append(figOverlay);
-
-      // create div, class external-icons
-      var icons = $("<div>").addClass("external-icons");
-      figOverlay.append(icons);
-
-      // create a, class zoom, href, icon class fa-fa-search-plus
-      var zoom = $("<a>").attr("href", imagesArray[i].url);
-      zoom.attr("data-gal", "prettyPhoto[gallery]");
-      zoom.attr("target", "_blank");
-      zoom.addClass("zoom");
-      var zoomIcon = $("<span>").addClass("fa fa-search-plus");
-      zoom.append(zoomIcon);
-      icons.append(zoom);
-
-      // create a, class like, href, icon class fa-fa-heart
-      var like = $("<a>").attr("href", "#");
-      like.addClass("like");
-      var likeIcon = $("<span>").addClass("fa fa-heart");
-      like.append(likeIcon);
-      icons.append(like);
-
-      // create a, class view, href, icon class fa fa-download
-      var download = $("<a>").attr("href", "#");
-      download.addClass("view");
-      var downloadIcon = $("<span>").addClass("fa fa-download");
-      download.append(downloadIcon);
-      icons.append(download);
-
-      $("#imagesSection").append(imageDiv);
-    }
-  },
-  clearImagesDiv: function() {
-    $("#imagesSection").text("");
-  },
-  scrollToImages: function() {
-    window.scrollBy({
-      top: 700,
-      left: 0,
-      behavior: "smooth"
-    });
-  },
-  getExamples: function() {
-    return $.ajax({
-      url: "api/examples",
-      type: "GET"
-    });
-  },
-  deleteExample: function(id) {
-    return $.ajax({
-      url: "api/examples/" + id,
-      type: "DELETE"
-    });
-  },
-  saveExample: function(example) {
+  saveStockFave: function(record) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
+      url: "api/stockfaves",
+      data: JSON.stringify(record)
+    });
+  },
+  saveUser: function(user) {
+    return $.ajax({
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "POST",
+      url: "api/user",
+      data: JSON.stringify(user)
     });
   }
 };
 
-// refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
-      var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+// SHOW IMAGES AFTER EVERY SEARCH
+var showImages = function(imagesArray) {
+  for (var i = 0; i < imagesArray.length; i++) {
+    console.log(imagesArray[i].url);
+    console.log(imagesArray[i].width);
 
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": example.id
-        })
-        .append($a);
+    // create div for figure
+    var imageDiv = $("<div>").addClass("dt-sc-portfolio");
+    imageDiv.addClass("width1");
 
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
+    // create figure
+    var imageFigure = $("<figure>");
+    imageDiv.append(imageFigure);
 
-      $li.append($button);
+    // create image
+    var image = $("<img>").attr("src", imagesArray[i].url);
+    imageFigure.append(image);
 
-      return $li;
-    });
+    // create fig caption
+    var figCaption = $("<figcaption>");
+    imageFigure.append(figCaption);
 
-    $exampleList.empty();
-    $exampleList.append($examples);
+    // create div, class fig-overlay
+    var figOverlay = $("<div>");
+    figOverlay.addClass("fig-overlay");
+    figCaption.append(figOverlay);
+
+    // create div, class external-icons
+    var icons = $("<div>").addClass("external-icons");
+    figOverlay.append(icons);
+
+    // create a, class zoom, href, icon class fa-fa-search-plus
+    var zoom = $("<a>").attr("href", imagesArray[i].url);
+    zoom.attr("data-gal", "prettyPhoto[gallery]");
+    zoom.attr("target", "_blank");
+    zoom.addClass("zoom");
+    var zoomIcon = $("<span>").addClass("fa fa-search-plus");
+    zoom.append(zoomIcon);
+    icons.append(zoom);
+
+    // create a, class like, href, icon class fa-fa-heart
+    var like = $("<a>").attr("href", "/api/examples/");
+    var like = $("<a>").attr("data", imagesArray[i].url);
+    like.addClass("like");
+    var likeIcon = $("<span>").addClass("fa fa-heart");
+    like.append(likeIcon);
+    icons.append(like);
+
+    // create a, class view, href, icon class fa fa-download
+    var download = $("<a>").attr("href", "#");
+    download.addClass("view");
+    var downloadIcon = $("<span>").addClass("fa fa-download");
+    download.append(downloadIcon);
+    icons.append(download);
+
+    $("#imagesSection").append(imageDiv);
+  }
+};
+
+// SCROLL TO IMAGES AFTER SEARCH IS DONE
+var scrollToImages = function() {
+  window.scrollBy({
+    top: 700,
+    left: 0,
+    behavior: "smooth"
   });
 };
 
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
+// CLEAR IMAGES DIV AFTER NEW SEARCH
+var clearImagesDiv = function() {
+  $("#imagesSection").text("");
+};
+
+// HANDLEFORMSUBMIT IS CALLED WHENEVER USER SEARCHES A TERM
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
+  // TERM INPUT FOR IMAGE SEARCH TERM
   var images = $search.val().trim();
 
+  // VALIDATION TO AVOID EMPTY SEARCHES
   if (!images) {
     alert("You must enter an image search description!");
     return;
   }
-  imagesArray = [];
-  API.clearImagesDiv();
 
-  // API.show(images).then(function() {
-  //   refreshExamples();
-  // });
+  // SETS THE EMPTY ARRAY THAT WILL HOLD OUR IMAGE OBJECTS
+  imagesArray = [];
+
+  // EVERY TIME THERE IS A NEW SEARCH, IT CLEARS THE IMAGES CONTAINER
+  clearImagesDiv();
+
+  // CALLS IMAGE APIS WITH SEARCH INPUT
   API.getUnsplash(images);
   API.getPixabay(images);
   API.getPexels(images);
 
+  // CLEARS THE INPUT FORM FOR UX
   $("form")[0].reset();
+
+  // SETS THE IMAGE SEARCH TERM TO BLANK TO ENABLE VALIDATION
   $search.val("");
 };
 
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
+// [PENDING USER ID] HANDLE LIKE BUTTON ACTION TO SAVE STOCK FAVE
+var handleLike = function(event) {
+  event.preventDefault();
 
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
-  });
+  // [PENDING] VALIDATE USER ID LOGGED IN
+
+  // LIKE BUTTON CLICKED AND SAVING URL TO STOCKFAVE
+  var stockFave = {
+    url: ""
+  };
+  stockFave.url = $(this).attr("data");
+
+  // SEND URL OBJECT TO STOCKFAVES TABLE
+  API.saveStockFave(stockFave);
+
+  // [PENDING] MAKE SURE IT'S TIED TO USER ID
 };
 
-// Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
-//$exampleList.on("click", ".delete", handleDeleteBtnClick);
-
-//Chrome anchor link bug fix
+//CHROME ANCHOR LINK BUG FIX
 $(function() {
   $("a[href*='#']:not([href='#'])").click(function() {
     if (
@@ -258,19 +239,20 @@ $(function() {
   });
 });
 
+// CREATE ACCOUNT BY SIGN UP
+$("#createAccount").click(function() {
+  var us = {
+    email: "",
+    username: "",
+    password: ""
+  };
+  us.email = $("#signup-email").val();
+  us.username = $("#signup-username").val();
+  us.password = $("#signup-password").val();
 
+  API.saveUser(us);
+});
 
-
-$("#createAccount").click(function(){
-var us={
-  email:"",
-  username:"",
-  password:""
-}
-  us.email=$("#signup-email").val();
-us.username=$("#signup-username").val();
-us.password=$("#signup-password").val();
-
-
-API.saveExample(us);
-})
+// ADD EVENT LISTENERS TO THE SUBMIT AND LIKE BUTTONS
+$submitBtn.on("click", handleFormSubmit);
+$imagesSection.on("click", ".like", handleLike);
