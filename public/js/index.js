@@ -1,4 +1,7 @@
 // Get references to page elements
+
+
+
 var $search = $("#search");
 var $submitBtn = $("#submit");
 
@@ -6,11 +9,9 @@ var imagesArray = [];
 
 
 
-
-
 // The API object contains methods for each kind of request we'll make
 var API = {
-  getUnsplash: function(images) {
+  getUnsplash: function (images) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json",
@@ -45,7 +46,7 @@ var API = {
         images +
         "&per_page=15&page=1",
       data: JSON.stringify(images)
-    }).then(function(data) {
+    }).then(function (data) {
       // console.log(data);
       for (var i = 0; i < data.photos.length; i++) {
         var tempObj = {};
@@ -78,13 +79,58 @@ var API = {
       type: "GET"
     });
   },
+
+  checkUser: function (email) {
+    return $.ajax({
+      url: "api/examples/" + email,
+      type: "GET"
+    }).then(function (json) {
+      if (json.length > 0) {
+        exists = true;
+      }
+
+      else {
+        exists = false;
+      }
+    });
+  },
+  findUser: function (user) {
+    return $.ajax({
+      url: "api/examples/" + user.email,
+      type: "GET"
+    }).then(function (json) {
+
+      //  require("bcrypt-nodejs");
+      if (json.length == 0) {
+        //
+        // User doesnt Exist
+        //
+        alert("No matching account with that email");
+      }
+      else {
+        if (user.password == json[0].password) {
+//
+//log in
+//
+alert("Logged in");
+        }
+        else{
+          alert("Incorrect Password");
+        }
+
+
+      }
+
+
+    })
+  },
   deleteExample: function (id) {
     return $.ajax({
       url: "api/examples/" + id,
       type: "DELETE"
     });
   },
-  saveExample: function(example) {
+  saveExample: function (example) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -167,11 +213,11 @@ $submitBtn.on("click", handleFormSubmit);
 //$exampleList.on("click", ".delete", handleDeleteBtnClick);
 
 //Chrome anchor link bug fix
-$(function() {
-  $("a[href*='#']:not([href='#'])").click(function() {
+$(function () {
+  $("a[href*='#']:not([href='#'])").click(function () {
     if (
       location.pathname.replace(/^\//, "") ===
-        this.pathname.replace(/^\//, "") &&
+      this.pathname.replace(/^\//, "") &&
       location.hostname === this.hostname
     ) {
       var target = $(this.hash);
@@ -192,16 +238,68 @@ $(function() {
 
 
 
-$("#createAccount").click(function(){
-var us={
-  email:"",
-  username:"",
-  password:""
-}
-  us.email=$("#signup-email").val();
-us.username=$("#signup-username").val();
-us.password=$("#signup-password").val();
+$("#createAccount").click(function () {
+  var us = {
+    email: "",
+    username: "",
+    password: ""
+  }
+  us.email = $("#signup-email").val();
+  us.username = $("#signup-username").val();
+  us.password = $("#signup-password").val();
+
+  //check if user exist
 
 
-API.saveExample(us);
+  var API2 = {
+    exist: false,
+    saveExample: function (example) {
+
+
+      return $.ajax({
+        headers: {
+          "Content-Type": "application/json"
+        },
+        type: "POST",
+        url: "api/examples",
+        data: JSON.stringify(example)
+      });
+    },
+
+
+    getUser: function (us) {
+      return $.ajax({
+        url: "api/examples/" + us.email,
+        type: "GET"
+      }).then(function (json) {
+        // alert(json);
+        if (json.length > 0) {
+          alert("user already exists");
+        }
+        else {
+          API2.saveExample(us);
+        }
+      });
+    }
+
+  }
+  API2.getUser(us);
+
+
+})
+
+
+
+$("#loggingIn").click(function () {
+
+
+  var user2 = {
+    email: "",
+    password: ""
+  }
+
+  user2.email = $("#signin-email").val();
+  user2.password = $("#signin-password").val();
+  API.findUser(user2);
+
 })
