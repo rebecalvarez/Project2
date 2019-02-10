@@ -1,31 +1,28 @@
 var db = require("../models");
 module.exports = function(app) {
   // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+  app.get("/api/user", function(req, res) {
+    db.Example.findAll({}).then(function(user) {
+      res.json(user);
      // console.log(res.json(dbExamples));
     });
   });
 
-  app.get("/api/examples/:email", function(req, res) {
-    db.Example.findAll({where :{email:req.params.email}}).then(function(dbExamples) {
-      res.json(dbExamples);
+  app.get("/api/user/:email", function(req, res) {
+    db.Example.findAll({where :{email:req.params.email}}).then(function(user) {
+      res.json(user);
      // console.log(res.json(dbExamples));
+  // CREATE A NEW ACCOUNT
+  app.post("/api/user", function(req, res) {
+    db.Users.create(req.body).then(function(user) {
+      res.json(user);
     });
   });
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
-
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
+  // SAVE STOCKFAVE
+  app.post("/api/stockfaves", function(request, response) {
+    db.StockFaves.create(request.body).then(function(record) {
+      response.json(record);
     });
   });
 };
