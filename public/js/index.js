@@ -82,6 +82,51 @@ var API = {
       data: JSON.stringify(record)
     });
   },
+
+  checkUser: function(email) {
+    return $.ajax({
+      url: "api/examples/" + email,
+      type: "GET"
+    }).then(function(json) {
+      if (json.length > 0) {
+        exists = true;
+      }
+
+      else {
+        exists = false;
+      }
+    });
+  },
+  findUser: function(user) {
+    return $.ajax({
+      url: "api/examples/" + user.email,
+      type: "GET"
+    }).then(function(json) {
+
+      //  require("bcrypt-nodejs");
+      if (json.length == 0) {
+        //
+        // User doesnt Exist
+        //
+        alert("No matching account with that email");
+      }
+      else {
+        if (user.password == json[0].password) {
+//
+//log in
+//
+alert("Logged in");
+        }
+        else{
+          alert("Incorrect Password");
+        }
+
+
+      }
+
+
+    })
+  },
   saveUser: function(user) {
     return $.ajax({
       headers: {
@@ -221,7 +266,7 @@ $(function() {
   $("a[href*='#']:not([href='#'])").click(function() {
     if (
       location.pathname.replace(/^\//, "") ===
-        this.pathname.replace(/^\//, "") &&
+      this.pathname.replace(/^\//, "") &&
       location.hostname === this.hostname
     ) {
       var target = $(this.hash);
@@ -252,6 +297,61 @@ $("#createAccount").click(function() {
 
   API.saveUser(us);
 });
+
+
+$("#createAccount").click(function() {
+  var us = {
+    email: "",
+    username: "",
+    password: ""
+  }
+  us.email = $("#signup-email").val();
+  us.username = $("#signup-username").val();
+  us.password = $("#signup-password").val();
+
+  //check if user exist
+
+  var API2 = {
+    exist: false,
+    saveExample: function(example) {
+      return $.ajax({
+        headers: {
+          "Content-Type": "application/json"
+        },
+        type: "POST",
+        url: "api/examples",
+        data: JSON.stringify(example)
+      });
+    },
+    getUser: function(us) {
+      return $.ajax({
+        url: "api/examples/" + us.email,
+        type: "GET"
+      }).then(function(json) {
+        // alert(json);
+        if (json.length > 0) {
+          alert("user already exists");
+        }
+        else {
+          API2.saveExample(us);
+        }
+      });
+    }
+  }
+  API2.getUser(us);
+})
+
+
+
+$("#loggingIn").click(function() {
+  var user2 = {
+    email: "",
+    password: ""
+  }
+  user2.email = $("#signin-email").val();
+  user2.password = $("#signin-password").val();
+  API.findUser(user2);
+})
 
 // ADD EVENT LISTENERS TO THE SUBMIT AND LIKE BUTTONS
 $submitBtn.on("click", handleFormSubmit);
