@@ -12,24 +12,14 @@ var db = require("./models");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
-
-
-
-
-
-
 //     a();
 
 // };
 
 // passport.use(new Strategy(fbOptions, fbCallback));
 
-
-
-
 // app.get('/auth/facebook',
 //   passport.authenticate('facebook'));
-
 
 //   app.get('/auth/facebook/callback',
 //   passport.authenticate('facebook', { failureRedirect: '/' }),
@@ -45,7 +35,6 @@ var PORT = process.env.PORT || 3000;
 //   res.redirect('/');
 //  });
 
-
 //app.route('/').get(passport.authenticate('facebook',{scope:['email']}));
 
 // {app.route('/callback')
@@ -57,7 +46,6 @@ var PORT = process.env.PORT || 3000;
 //     res.redirect('/');
 //   });
 // }
-
 
 // passport.serializeUser(function(user, cb) {
 //   cb(null, user);
