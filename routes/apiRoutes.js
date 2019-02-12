@@ -1,6 +1,6 @@
 var db = require("../models");
 var bcrypt = require("bcrypt");
-var salt = bcrypt.genSaltSync();
+// var salt = bcrypt.genSaltSync();
 
 module.exports = function(app) {
   // Get all examples
@@ -25,7 +25,7 @@ module.exports = function(app) {
         req.params.password,
         dbExamples.dataValues.password,
         function(err, result) {
-          if (result == true) {
+          if (result === true) {
             console.log("hello");
           } else {
             console.log("wrong");
