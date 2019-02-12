@@ -1,3 +1,5 @@
+//  import Axios from "axios";
+
 // GET REFERENCES TO PAGE ELEMENTS
 var $search = $("#search");
 var $imagesSection = $("#imagesSection");
@@ -134,7 +136,7 @@ var showImages = function(imagesArray) {
   for (var i = 0; i < imagesArray.length; i++) {
     console.log(imagesArray[i].url);
     console.log(imagesArray[i].width);
-
+    var imageurl = imagesArray[i].url;
     // create div for figure
     var imageDiv = $("<div>").addClass("dt-sc-portfolio");
     imageDiv.addClass("width1");
@@ -178,11 +180,50 @@ var showImages = function(imagesArray) {
     icons.append(like);
 
     // create a, class view, href, icon class fa fa-download
-    var download = $("<a>").attr("href", "#");
-    download.addClass("view");
-    var downloadIcon = $("<span>").addClass("fa fa-download");
-    download.append(downloadIcon);
-    icons.append(download);
+    // var downloader = $("<a>").attr("href", "#");
+    // downloader.addClass("view");
+    // $(".view").click(function(){
+    //   imageDownload(imageurl).then(buffer => {
+    //     const type = imageType(buffer);
+    //     fs.writeFile('polystocks.' + type.ext, buffer, (err) => console.log(err ? err : 'done!'));
+    // });
+    // console.log(imageurl);
+    //   var options = {
+    //     url: imageurl,
+    //     dest: '/downloads'                  // Save to /path/to/dest/image.jpg
+    //   }
+    //   Download.image(options)
+    //     .then(({ filename, image }) => {
+    //       console.log('File saved to', filename)
+    //     })
+    //     .catch((err) => {
+    //       console.error(err)
+    //     })
+    // });
+
+    // $(".download").click(function(){
+    //   var url = imagesArray[i].url;
+    //   var path = Path.resolve(__dirname, "downloads","polystocks.jpg");
+    //   var writer = Fs.createWriterStream(path);
+
+    //   var response = await Axios({
+    //     url,
+    //     method: "GET",
+    //     responseType: "stream"
+
+    //   });
+
+    //   response.data.pipe(writer);
+    //   return new Promise ((resolve, reject) => {
+    //     writer.on("finish", resolve);
+    //     writer.on("error", reject);
+    //   });
+
+    // });
+
+    // var downloadIcon = $("<span>").addClass("fa fa-download");
+    // downloader.append(downloadIcon);
+    // icons.append(downloader);
 
     $("#imagesSection").append(imageDiv);
   }
