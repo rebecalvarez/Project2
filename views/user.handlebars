@@ -8,9 +8,6 @@
     </div>
 </div>
 
-
-
-
 <div class="wrapper">
     <div class="inner-wrapper type-1">
 
@@ -121,6 +118,28 @@
                         </div>
                        {{!-- End of Categories --}}
 
+                        <div class="images-div-content">
+                            {{#each images}}
+                            <div id="imagesSection" class="images-container animate fadeIn" data-animation="fadeIn" data-delay="100">
+                                <div class="dt-sc-portfolio width1">
+                                    <figure><img
+                                            src={{this.url}}>
+                                        <figcaption>
+                                            <div class="fig-overlay">
+                                                <div class="external-icons"><a
+                                                        href={{this.url}}
+                                                        data-gal="prettyPhoto[gallery]" target="_blank" class="zoom"><span
+                                                            class="fa fa-search-plus"></span></a><a
+                                                        data={{this.url}}
+                                                        class="like"><span class="fa fa-heart"></span></a><a href="#" class="view"><span
+                                                            class="fa fa-download"></span></a></div>
+                                            </div>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                            {{/each}}
+                        </div>
             </div>
             <div class="dt-sc-hr-invisible"> </div>
            

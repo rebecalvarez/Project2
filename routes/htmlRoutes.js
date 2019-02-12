@@ -2,19 +2,19 @@ var db = require("../models");
 // var User = require("../models/user");
 
 module.exports = function(app) {
-  // Load index page
+  // INDEX PAGE
   app.get("/", function(req, res) {
     res.render("index");
-    // db.findAll({}).then(function(dbExamples) {
-    //   res.render("index", {
-    //     msg: "Welcome!",
-    //     examples: dbExamples
-    //   });
-    // });
   });
 
+  // USER PAGE
   app.get("/user", function(req, res) {
-    res.render("user");
+    // SELECT ALL RECORDS FROM STOCKFAVES TABLE TO USE FOR HANDLEBARS OBJECT
+    db.StockFaves.findAll({}).then(function(data) {
+      res.render("user", {
+        images: data
+      });
+    });
   });
 
   // Load example page and pass in an example by id

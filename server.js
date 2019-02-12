@@ -5,18 +5,13 @@ var session = require("express-session");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 var Strategy = require("passport-facebook").Strategy;
-var bcrypt=require("bcryptjs");
-var b=require("bcrypt-nodejs")
+var bcrypt = require("bcryptjs");
+var b = require("bcrypt-nodejs");
 var db = require("./models");
+var cookieSession = require("cookie-session");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
-
-
-
-
-
-
 
 //     a();
 
@@ -24,12 +19,8 @@ var PORT = process.env.PORT || 3000;
 
 // passport.use(new Strategy(fbOptions, fbCallback));
 
-
-
-
 // app.get('/auth/facebook',
 //   passport.authenticate('facebook'));
-
 
 //   app.get('/auth/facebook/callback',
 //   passport.authenticate('facebook', { failureRedirect: '/' }),
@@ -45,7 +36,6 @@ var PORT = process.env.PORT || 3000;
 //   res.redirect('/');
 //  });
 
-
 //app.route('/').get(passport.authenticate('facebook',{scope:['email']}));
 
 // {app.route('/callback')
@@ -57,7 +47,6 @@ var PORT = process.env.PORT || 3000;
 //     res.redirect('/');
 //   });
 // }
-
 
 // passport.serializeUser(function(user, cb) {
 //   cb(null, user);
@@ -71,6 +60,15 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["user"],
+
+    // Cookie Options
+    maxAge: 24 * 60 * 60 * 1000 // 24 hours
+  })
+);
 
 // Handlebars
 app.engine(
