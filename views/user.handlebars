@@ -17,7 +17,7 @@
                 <div class="container">
                     <div id="logo">
                         <!-- <a href="index.html"> Poly<span> Stocks</span> </a> -->
-                        <img src="./images/polystocksLogo-color.png" height="60" width="200">
+                      <a href="http://www.polystocks.com" target="_self" > <img src="./images/polystocksLogo-color.png" height="60" width="200"> </a>
 
                     </div>
 
@@ -27,15 +27,9 @@
                             <i class="fa fa-bars"></i>
                         </div>
                         <ul id="menu" class="js-signin-modal-trigger">
-                            <li class="current_page_item"><a href="http://www.polystocks.com" target="_self">Home</a> </li>
-                            {{!-- <li><a href="#team">Team</a> </li> --}}
-                            <!-- <li><a href="#contact">Contact</a> </li>   -->
-                            {{!-- <li><a class="cd-main-nav__item--signin" href="#0" data-signin="login">Login</a> </li> --}}
-                            {{!-- <li>
-                                <div class="fb-login-button" data-size="medium" data-button-type="login_with"
-                                    data-auto-logout-link="true" data-use-continue-as="true"></div>
-                            </li> --}}
-                            {{!-- <li class="dt-sc-button small type2"><a class="cd-main-nav__item--signup" href="#0" data-signin="signup">Join</a> </li> --}}
+                            <li class="current_page_item"><a href="http://www.polystocks.com" target="_self">Home</a>
+                            </li>
+                            
 
                         </ul>
                     </nav>
@@ -44,212 +38,195 @@
         </header>
         <!--Header Ends Here-->
 
-  
+
 
         <!--Main Content Starts Here-->
+
        
-        {{!-- <!--Home Ends Here--> --}}
-  <div class="dt-sc-hr-invisible"> </div>
-           
+        <!--Home Ends Here--> 
+        {{!-- <div class="dt-sc-hr-invisible"> </div>
+
+        <div class="dt-sc-hr-invisible"> </div> --}}
+
+        <section name="team" class="content">
             <div class="dt-sc-hr-invisible"> </div>
-        
-  <section  name="team" class="content">
+
             <div class="dt-sc-hr-invisible"> </div>
             <div class="container">
-             
-                {{!-- Categories --}}
-                 <div class="column dt-sc-full-width first">
+
+                {{!-- Title --}}
+                <div class="column dt-sc-full-width first">
                     <div class="dt-sc-hr-invisible-toosmall"></div>
-                        <h3 class="sub-title aligncenter"> My <span>Images</span>  </h3> <br><br>
-                        {{!-- <div class="folder">
-                            <a href="#" class="dt-sc-toggle categories">Category Name</a>
-                                <div class="dt-sc-toggle-content">
-                                    <div class="block">
-                                        {{!-- <p> Description of Category</p> --}}
-                                        
-                                            <div class="dt-sc-portfolio games landscapes width4 adjust">
-                                                <figure>
-                                                    <img src="http://placehold.it/800x291&text=Portfolio+Image" alt="" title="">
-                                                        <figcaption>
-                                                            <div class="fig-overlay">
-                                                                <h6><a href="portfolio-detail.html">Dream Your Life</a></h6>
-                                                                    <div class="external-icons">
-                                                                        <a class="zoom" href="http://placehold.it/800x291&text=Portfolio+Image"
-                                            data-gal="prettyPhoto[gallery]" title="Love conquers all"> <span class="fa fa-search-plus">
-                                            </span> </a>
-                                                                        {{!-- <a class="like" href="#"> <span class="fa fa-heart"> </span> </a> --}}
-                                                                {{!-- <a class="comment" href="portfolio-detail.html"> <span class="fa fa-comment">
-                                                                </span> </a> --}}
-                                                                        <a class="view" href="portfolio-detail.html"> <span class="fa fa-download"> </span> </a>
-                                                                    </div>
-                                                            </div>
-                                                        </figcaption>
-                                                </figure>
+                    <h3 class="sub-title aligncenter"> Our <span>Community</span> Favs </h3> <br><br>
+
+                </div>
+
+                  </section>
+                {{!-- End of Title --}}
+                <section id="works" class="user-content">
+                    
+                        {{#each images}}
+                       
+                        <div id="imagesSection" class="images-user-content animate fadeIn" data-animation="fadeIn"
+                            data-delay="100">
+                             {{!-- <div class="images-user-content"> --}}
+                            <div class="dt-sc-portfolio width1">
+                                <figure><img src={{this.url}}>
+                                    <figcaption>
+                                        <div class="fig-overlay">
+                                            <div class="external-icons">
+                                                <a href={{this.url}} data-gal="prettyPhoto[gallery]" target="_blank"
+                                                    class="zoom"><span class="fa fa-search-plus"></span></a>
+                                                <a data={{this.url}} data-id={{this.id}} class="like"><span class="fa fa-heart"></span></a>
+                                                {{!-- <a data={{this.url}} class="view"><span class="fa fa-download"></span></a>
+                                                --}}
                                             </div>
-                                           
-                                    </div>
-                                </div> --}}
-                            {{!-- <a href="#" class="dt-sc-toggle">Category Name</a>
-                                <div class="dt-sc-toggle-content">
-                                    <div class="block">
-                                        <p> Description of Category</p>
-                                        <div class="dt-sc-portfolio games landscapes width4 adjust">
-                                                <figure>
-                                                    <img src="http://placehold.it/800x291&text=Portfolio+Image" alt="" title="">
-                                                        <figcaption>
-                                                            <div class="fig-overlay">
-                                                                <h6><a href="portfolio-detail.html">Dream Your Life</a></h6>
-                                                                    <div class="external-icons">
-                                                                        <a class="zoom" href="http://placehold.it/800x291&text=Portfolio+Image"
-                                            data-gal="prettyPhoto[gallery]" title="Love conquers all"> 
-                                                                        <span class="fa fa-search-plus"> </span> </a>
-                                                                        {{!-- <a class="like" href="#"> <span class="fa fa-heart"> </span> </a> --}}
-                                                                {{!-- <a class="comment" href="portfolio-detail.html"> <span class="fa fa-comment">
-                                                                </span> </a> --}}
-                                                                        <a class="view" href="portfolio-detail.html"> <span class="fa fa-download"> </span> </a>
-                                                                    </div>
-                                                            </div>
-                                                        </figcaption>
-                                                </figure>
                                         </div>
-                                    </div>
-                                </div> --}}
+                                    </figcaption>
+                                </figure>
+                            </div>
                             {{!-- </div> --}}
                         </div>
-                       {{!-- End of Categories --}}
-
-                        <div class="images-div-content">
-                            {{#each images}}
-                            <div id="imagesSection" class="images-container animate fadeIn" data-animation="fadeIn" data-delay="100">
-                                <div class="dt-sc-portfolio width1">
-                                    <figure><img
-                                            src={{this.url}}>
-                                        <figcaption>
-                                            <div class="fig-overlay">
-                                                <div class="external-icons">
-                                                    <a href={{this.url}} data-gal="prettyPhoto[gallery]" target="_blank" class="zoom"><span class="fa fa-search-plus"></span></a>
-                                                    <a data={{this.url}} data-id={{this.id}} class="like"><span class="fa fa-heart"></span></a>
-                                                    <a data={{this.url}} class="view"><span class="fa fa-download"></span></a>
-                                                </div>
-                                            </div>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </div>
-                            {{/each}}
-                        </div>
+                       
+                        {{/each}}
+                 
+                </section>
+            </div>
             </div>
             <div class="dt-sc-hr-invisible"> </div>
-           
+
             <div class="dt-sc-hr-invisible"> </div>
-        </section>
-
-
       
 
-       
+
+
+
+
 
         <div class="dt-sc-copyrights">
             <div class="container">
                 <p> &copy; 2019. All Rights reserved by <a class="medialinks" href="#"> PolyStocks </a> </p>
-                
-                </div>
+
             </div>
         </div>
     </div>
-    {{!-- <!--Main Content Ends Here--> --}}
+</div>
+{{!--
+<!--Main Content Ends Here--> --}}
 </div>
 </div>
 <!--Modal Starts Here-->
-<div class="cd-signin-modal js-signin-modal"> <!-- this is the entire modal form, including the background -->
-		<div class="cd-signin-modal__container"> <!-- this is the container wrapper -->
-			<ul class="cd-signin-modal__switcher js-signin-modal-switcher js-signin-modal-trigger">
-				<li><a href="#0" data-signin="login" data-type="login">Sign in</a></li>
-				<li><a href="#0" data-signin="signup" data-type="signup">New account</a></li>
-			</ul>
+<div class="cd-signin-modal js-signin-modal">
+    <!-- this is the entire modal form, including the background -->
+    <div class="cd-signin-modal__container">
+        <!-- this is the container wrapper -->
+        <ul class="cd-signin-modal__switcher js-signin-modal-switcher js-signin-modal-trigger">
+            <li><a href="#0" data-signin="login" data-type="login">Sign in</a></li>
+            <li><a href="#0" data-signin="signup" data-type="signup">New account</a></li>
+        </ul>
 
-			<div class="cd-signin-modal__block js-signin-modal-block" data-type="login"> <!-- log in form -->
-				<form class="cd-signin-modal__form">
-					<p class="cd-signin-modal__fieldset">
-						<label class="cd-signin-modal__label cd-signin-modal__label--email cd-signin-modal__label--image-replace" for="signin-email">E-mail</label>
-						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signin-email" type="email" placeholder="E-mail">
-						<span class="cd-signin-modal__error">Error message here!</span>
-					</p>
+        <div class="cd-signin-modal__block js-signin-modal-block" data-type="login">
+            <!-- log in form -->
+            <form class="cd-signin-modal__form">
+                <p class="cd-signin-modal__fieldset">
+                    <label class="cd-signin-modal__label cd-signin-modal__label--email cd-signin-modal__label--image-replace"
+                        for="signin-email">E-mail</label>
+                    <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border"
+                        id="signin-email" type="email" placeholder="E-mail">
+                    <span class="cd-signin-modal__error">Error message here!</span>
+                </p>
 
-					<p class="cd-signin-modal__fieldset">
-						<label class="cd-signin-modal__label cd-signin-modal__label--password cd-signin-modal__label--image-replace" for="signin-password">Password</label>
-						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signin-password" type="text"  placeholder="Password">
-						<a href="#0" class="cd-signin-modal__hide-password js-hide-password">Hide</a>
-						<span class="cd-signin-modal__error">Error message here!</span>
-					</p>
+                <p class="cd-signin-modal__fieldset">
+                    <label class="cd-signin-modal__label cd-signin-modal__label--password cd-signin-modal__label--image-replace"
+                        for="signin-password">Password</label>
+                    <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border"
+                        id="signin-password" type="text" placeholder="Password">
+                    <a href="#0" class="cd-signin-modal__hide-password js-hide-password">Hide</a>
+                    <span class="cd-signin-modal__error">Error message here!</span>
+                </p>
 
-					<p class="cd-signin-modal__fieldset">
-						<input type="checkbox" id="remember-me" checked class="cd-signin-modal__input ">
-						<label for="remember-me">Remember me</label>
-					</p>
+                <p class="cd-signin-modal__fieldset">
+                    <input type="checkbox" id="remember-me" checked class="cd-signin-modal__input ">
+                    <label for="remember-me">Remember me</label>
+                </p>
 
-					<p class="cd-signin-modal__fieldset">
-						<input class="cd-signin-modal__input cd-signin-modal__input--full-width" type="submit" value="Login">
-					</p>
-				</form>
-				
-				<p class="cd-signin-modal__bottom-message js-signin-modal-trigger"><a href="#0" data-signin="reset">Forgot your password?</a></p>
-			</div> <!-- cd-signin-modal__block -->
+                <p class="cd-signin-modal__fieldset">
+                    <input class="cd-signin-modal__input cd-signin-modal__input--full-width" type="submit" value="Login">
+                </p>
+            </form>
 
-			<div class="cd-signin-modal__block js-signin-modal-block" data-type="signup"> <!-- sign up form -->
-				<form class="cd-signin-modal__form">
-					<p class="cd-signin-modal__fieldset">
-						<label class="cd-signin-modal__label cd-signin-modal__label--username cd-signin-modal__label--image-replace" for="signup-username">Username</label>
-						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signup-username" type="text" placeholder="Username">
-						<span class="cd-signin-modal__error">Error message here!</span>
-					</p>
+            <p class="cd-signin-modal__bottom-message js-signin-modal-trigger"><a href="#0" data-signin="reset">Forgot
+                    your password?</a></p>
+        </div> <!-- cd-signin-modal__block -->
 
-					<p class="cd-signin-modal__fieldset">
-						<label class="cd-signin-modal__label cd-signin-modal__label--email cd-signin-modal__label--image-replace" for="signup-email">E-mail</label>
-						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signup-email" type="email" placeholder="E-mail">
-						<span class="cd-signin-modal__error">Error message here!</span>
-					</p>
+        <div class="cd-signin-modal__block js-signin-modal-block" data-type="signup">
+            <!-- sign up form -->
+            <form class="cd-signin-modal__form">
+                <p class="cd-signin-modal__fieldset">
+                    <label class="cd-signin-modal__label cd-signin-modal__label--username cd-signin-modal__label--image-replace"
+                        for="signup-username">Username</label>
+                    <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border"
+                        id="signup-username" type="text" placeholder="Username">
+                    <span class="cd-signin-modal__error">Error message here!</span>
+                </p>
 
-					<p class="cd-signin-modal__fieldset">
-						<label class="cd-signin-modal__label cd-signin-modal__label--password cd-signin-modal__label--image-replace" for="signup-password">Password</label>
-						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signup-password" type="text"  placeholder="Password">
-						<a href="#0" class="cd-signin-modal__hide-password js-hide-password">Hide</a>
-						<span class="cd-signin-modal__error">Error message here!</span>
-					</p>
+                <p class="cd-signin-modal__fieldset">
+                    <label class="cd-signin-modal__label cd-signin-modal__label--email cd-signin-modal__label--image-replace"
+                        for="signup-email">E-mail</label>
+                    <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border"
+                        id="signup-email" type="email" placeholder="E-mail">
+                    <span class="cd-signin-modal__error">Error message here!</span>
+                </p>
 
-					<p class="cd-signin-modal__fieldset">
-						<input type="checkbox" id="accept-terms" class="cd-signin-modal__input ">
-						<label for="accept-terms">I agree to the <a href="#0">Terms</a></label>
-					</p>
+                <p class="cd-signin-modal__fieldset">
+                    <label class="cd-signin-modal__label cd-signin-modal__label--password cd-signin-modal__label--image-replace"
+                        for="signup-password">Password</label>
+                    <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border"
+                        id="signup-password" type="text" placeholder="Password">
+                    <a href="#0" class="cd-signin-modal__hide-password js-hide-password">Hide</a>
+                    <span class="cd-signin-modal__error">Error message here!</span>
+                </p>
 
-					<p class="cd-signin-modal__fieldset">
-						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding" type="submit" value="Create account">
-					</p>
-				</form>
-			</div> <!-- cd-signin-modal__block -->
+                <p class="cd-signin-modal__fieldset">
+                    <input type="checkbox" id="accept-terms" class="cd-signin-modal__input ">
+                    <label for="accept-terms">I agree to the <a href="#0">Terms</a></label>
+                </p>
 
-			<div class="cd-signin-modal__block js-signin-modal-block" data-type="reset"> <!-- reset password form -->
-				<p class="cd-signin-modal__message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>
+                <p class="cd-signin-modal__fieldset">
+                    <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding"
+                        type="submit" value="Create account">
+                </p>
+            </form>
+        </div> <!-- cd-signin-modal__block -->
 
-				<form class="cd-signin-modal__form">
-					<p class="cd-signin-modal__fieldset">
-						<label class="cd-signin-modal__label cd-signin-modal__label--email cd-signin-modal__label--image-replace" for="reset-email">E-mail</label>
-						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="reset-email" type="email" placeholder="E-mail">
-						<span class="cd-signin-modal__error">Error message here!</span>
-					</p>
+        <div class="cd-signin-modal__block js-signin-modal-block" data-type="reset">
+            <!-- reset password form -->
+            <p class="cd-signin-modal__message">Lost your password? Please enter your email address. You will receive a
+                link to create a new password.</p>
 
-					<p class="cd-signin-modal__fieldset">
-						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding" type="submit" value="Reset password">
-					</p>
-				</form>
+            <form class="cd-signin-modal__form">
+                <p class="cd-signin-modal__fieldset">
+                    <label class="cd-signin-modal__label cd-signin-modal__label--email cd-signin-modal__label--image-replace"
+                        for="reset-email">E-mail</label>
+                    <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border"
+                        id="reset-email" type="email" placeholder="E-mail">
+                    <span class="cd-signin-modal__error">Error message here!</span>
+                </p>
 
-				<p class="cd-signin-modal__bottom-message js-signin-modal-trigger"><a href="#0" data-signin="login">Back to log-in</a></p>
-			</div> <!-- cd-signin-modal__block -->
-			<a href="#0" class="cd-signin-modal__close js-close">Close</a>
-		</div> <!-- cd-signin-modal__container -->
-	</div> <!-- cd-signin-modal -->
+                <p class="cd-signin-modal__fieldset">
+                    <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding"
+                        type="submit" value="Reset password">
+                </p>
+            </form>
 
- <!--Modal Ends Here-->
+            <p class="cd-signin-modal__bottom-message js-signin-modal-trigger"><a href="#0" data-signin="login">Back to
+                    log-in</a></p>
+        </div> <!-- cd-signin-modal__block -->
+        <a href="#0" class="cd-signin-modal__close js-close">Close</a>
+    </div> <!-- cd-signin-modal__container -->
+</div> <!-- cd-signin-modal -->
+
+<!--Modal Ends Here-->
 <script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="./js/jquery-migrate.min.js"></script>
 <script type="text/javascript" src="./js/jquery-easing-1.3.js"></script>
@@ -296,10 +273,5 @@
 <script type="text/javascript" src="./js/users.js"></script>
 
 <!-- **Modal** -->
-    <script src="./modal/js/placeholders.min.js"></script> <!-- polyfill for the HTML5 placeholder attribute -->
-    <script src="./modal/js/main.js"></script> <!-- Resource JavaScript -->
-
-
-
-      
-      
+<script src="./modal/js/placeholders.min.js"></script> <!-- polyfill for the HTML5 placeholder attribute -->
+<script src="./modal/js/main.js"></script> <!-- Resource JavaScript -->
