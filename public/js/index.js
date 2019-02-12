@@ -379,26 +379,21 @@ $("#loggingIn").click(function() {
     password: ""
   };
 
-
-
   user2.email = $("#signin-email").val();
   user2.password = $("#signin-password").val();
 
+  // API3 = {
+  //     findUser: function(user) {
+  //       return $.ajax({
+  //       url: "api/examples1/"+user.email+"/"+user.password,
+  //         type: "GET",
+  //         data: user
+  //     }).then(function(json) {
 
-
-API3={
-  findUser: function(user) {
-    return $.ajax({
-      url: "api/examples1/"+user.email+'/'+user.password,
-      type: "GET",
-      data: user
-    }).then(function(json) {
-
-    });
-  }}
-
-  API3.findUser(user2);
+  //     }
+  //   }
 });
+// API3.findUser(user2);
 
 // ADD EVENT LISTENERS TO THE SUBMIT AND LIKE BUTTONS
 $submitBtn.on("click", handleFormSubmit);

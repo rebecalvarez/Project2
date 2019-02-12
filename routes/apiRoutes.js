@@ -1,105 +1,77 @@
 var db = require("../models");
-var bcrypt = require('bcrypt');
+var bcrypt = require("bcrypt");
+// var salt = bcrypt.genSaltSync();
 
-
-
-const salt = bcrypt.genSaltSync();
-
-module.exports = function (app) {
+module.exports = function(app) {
   // Get all examples
 
-
-
-
-
-
-
-  app.get("/api/examples", function (req, res) {
-    db.Example.findAll({}).then(function (dbExamples) {
+  app.get("/api/examples", function(req, res) {
+    db.Example.findAll({}).then(function(dbExamples) {
       res.json(dbExamples);
       // console.log(res.json(dbExamples));
     });
   });
 
+  app.get("/api/examples1/:email/:password", function(req, res) {
+    db.Example.findOne({
+      where: {
+        //password: (bcrypt.hashSync(req.params.password, parseInt("kitty"))),
+        email: req.params.email
+      }
+    }).then(function(dbExamples) {
+      //console.log(dbE)
 
-
-
-  app.get("/api/examples1/:email/:password", function (req, res) {
-
-    db.Example
-      .findOne({
-        where: {
-          //password: (bcrypt.hashSync(req.params.password, parseInt("kitty"))),
-          email: req.params.email
+      bcrypt.compare(
+        req.params.password,
+        dbExamples.dataValues.password,
+        function(err, result) {
+          if (result === true) {
+            console.log("hello");
+          } else {
+            console.log("wrong");
+          }
         }
-      })
-      .then(function (dbExamples) {
-        //console.log(dbE)
+      );
+      //console.log(dbExamples.dataValues.email);
 
- bcrypt.compare(req.params.password, dbExamples.dataValues.password, function(err,result){
-
-
-  if(result==true){
-    console.log("hello");
-  }
-  else{
-    console.log("wrong");
-  }
-}
-
-)
-          //console.log(dbExamples.dataValues.email);
-       
-
-
-
-     
-                res.json(dbExamples);
-      });
-  });
-
-  app.get("/api/examples/:email", function (req, res) {
-    db.Example.findAll({ where: { email: req.params.email } }).then(function (
-      dbExamples
-    ) {
-      //console.log(dbExamples);
-      setTimeout(function () {
-        //console.log(dbExamples);
-
-      }, 1000);
       res.json(dbExamples);
-
     });
   });
 
-  app.get("/api/examples/check/:password", function (req, res) {
-    db.Example
-      .findOne({
-        where: {
-          email: req.params.email,
-          password: (bcrypt.hashSync(req.params.password, parseInt("cowabunga")))
-        }
-      })
-      .then(function (
-        dbExamples
-      ) {
-        res.json(dbExamples);
-      });
+  app.get("/api/examples/:email", function(req, res) {
+    db.Example.findAll({ where: { email: req.params.email } }).then(function(
+      dbExamples
+    ) {
+      //console.log(dbExamples);
+      setTimeout(function() {
+        //console.log(dbExamples);
+      }, 1000);
+      res.json(dbExamples);
+    });
   });
 
-
+  app.get("/api/examples/check/:password", function(req, res) {
+    db.Example.findOne({
+      where: {
+        email: req.params.email,
+        password: bcrypt.hashSync(req.params.password, parseInt("cowabunga"))
+      }
+    }).then(function(dbExamples) {
+      res.json(dbExamples);
+    });
+  });
 
   // console.log(res.json(dbExamples));
   // CREATE A NEW ACCOUNT
-  app.post("/api/examples", function (req, res) {
-    db.Example.create(req.body).then(function (user) {
+  app.post("/api/examples", function(req, res) {
+    db.Example.create(req.body).then(function(user) {
       res.json(user);
     });
   });
 
   // SAVE STOCKFAVE
-  app.post("/api/stockfaves", function (request, response) {
-    db.StockFaves.create(request.body).then(function (record) {
+  app.post("/api/stockfaves", function(request, response) {
+    db.StockFaves.create(request.body).then(function(record) {
       response.json(record);
     });
   });
