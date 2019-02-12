@@ -29,4 +29,24 @@ module.exports = function(app) {
       response.json(record);
     });
   });
+
+  // DELETE route for deleting posts
+  app.delete("/api/stockfaves/:id", function(req, res) {
+    db.StockFaves.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
+  app.post("/api/download", function(req, res) {
+    db.StockFaves.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
 };
