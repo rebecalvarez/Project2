@@ -6,8 +6,11 @@ var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 var Strategy = require("passport-facebook").Strategy;
 var bcrypt=require("bcryptjs");
-var b=require("bcrypt-nodejs")
+var b = require("bcrypt-nodejs")
 var db = require("./models");
+var fs = require("fs");
+var imageDownload = require("image-download");
+var imageType = require("image-type");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
