@@ -84,7 +84,6 @@ var API = {
       data: JSON.stringify(record)
     });
   },
-
   checkUser: function(email) {
     return $.ajax({
       url: "api/examples/" + email,

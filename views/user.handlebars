@@ -126,13 +126,11 @@
                                             src={{this.url}}>
                                         <figcaption>
                                             <div class="fig-overlay">
-                                                <div class="external-icons"><a
-                                                        href={{this.url}}
-                                                        data-gal="prettyPhoto[gallery]" target="_blank" class="zoom"><span
-                                                            class="fa fa-search-plus"></span></a><a
-                                                        data={{this.url}}
-                                                        class="like"><span class="fa fa-heart"></span></a><a href="#" class="view"><span
-                                                            class="fa fa-download"></span></a></div>
+                                                <div class="external-icons">
+                                                    <a href={{this.url}} data-gal="prettyPhoto[gallery]" target="_blank" class="zoom"><span class="fa fa-search-plus"></span></a>
+                                                    <a data={{this.url}} data-id={{this.id}} class="like"><span class="fa fa-heart"></span></a>
+                                                    <a data={{this.url}} class="view"><span class="fa fa-download"></span></a>
+                                                </div>
                                             </div>
                                         </figcaption>
                                     </figure>
@@ -295,7 +293,7 @@
 
 <script type="text/javascript" src="./js/custom.js"></script>
 
-<script type="text/javascript" src="./js/index.js"></script>
+<script type="text/javascript" src="./js/users.js"></script>
 
 <!-- **Modal** -->
     <script src="./modal/js/placeholders.min.js"></script> <!-- polyfill for the HTML5 placeholder attribute -->
