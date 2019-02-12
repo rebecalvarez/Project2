@@ -5,12 +5,10 @@ var session = require("express-session");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 var Strategy = require("passport-facebook").Strategy;
-var bcrypt=require("bcryptjs");
-var b = require("bcrypt-nodejs")
+var bcrypt = require("bcryptjs");
+var b = require("bcrypt-nodejs");
 var db = require("./models");
-var fs = require("fs");
-var imageDownload = require("image-download");
-var imageType = require("image-type");
+var cookieSession = require("cookie-session");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -62,6 +60,15 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["user"],
+
+    // Cookie Options
+    maxAge: 24 * 60 * 60 * 1000 // 24 hours
+  })
+);
 
 // Handlebars
 app.engine(
