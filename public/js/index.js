@@ -43,6 +43,9 @@ var API = {
         tempObj.width = data.hits[i].imageWidth;
         imagesArray.push(tempObj);
       }
+      clearImagesDiv();
+      showImages(imagesArray);
+      scrollToImages();
     });
   },
   getPexels: function(images) {
@@ -265,7 +268,7 @@ var handleFormSubmit = function(event) {
   // CALLS IMAGE APIS WITH SEARCH INPUT
   API.getUnsplash(images);
   API.getPixabay(images);
-  API.getPexels(images);
+  // API.getPexels(images);
 
   // CLEARS THE INPUT FORM FOR UX
   $("form")[0].reset();
