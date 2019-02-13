@@ -318,6 +318,17 @@ $(function() {
   });
 });
 
+// USER AJAX GET REQUEST
+$("#userPage").click(function() {
+  return $.ajax({
+    headers: {
+      "Content-Type": "application/json"
+    },
+    type: "GET",
+    url: "api/user"
+  });
+});
+
 // CREATE ACCOUNT BY SIGN UP
 $("#createAccount").click(function() {
   var us = {
